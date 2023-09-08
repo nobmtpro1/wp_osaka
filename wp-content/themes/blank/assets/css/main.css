@@ -1,0 +1,439 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  font-weight: normal;
+  line-height: normal;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  color: currentColor;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+select,
+textarea {
+  outline: none;
+  border: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}
+
+.g-container {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (max-width: 1025px) {
+  .g-container {
+    width: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
+
+.page-home {
+  color: red;
+}
+
+.component-header .top {
+  background: #000da3;
+}
+@media only screen and (max-width: 1025px) {
+  .component-header .top {
+    display: none;
+  }
+}
+.component-header .top.hide {
+  display: none;
+}
+.component-header .top ul {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 7px 0;
+}
+.component-header .top ul li {
+  font-size: 15px;
+  color: white;
+}
+.component-header .top ul li i {
+  margin-right: 8px;
+}
+.component-header .mid {
+  background: #ff9900;
+  transition: all 300ms ease-in-out;
+}
+@keyframes example {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+.component-header .mid.stick {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 99;
+  animation-name: example;
+  animation-duration: 1s;
+}
+@media only screen and (max-width: 1025px) {
+  .component-header .mid.stick .g-container {
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+  .component-header .mid.stick .g-container .logo {
+    width: 120px;
+  }
+  .component-header .mid.stick .g-container .search {
+    display: none;
+  }
+}
+.component-header .mid .g-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+@media only screen and (max-width: 1025px) {
+  .component-header .mid .g-container {
+    flex-direction: column;
+    width: 100%;
+    gap: 7px;
+  }
+}
+.component-header .mid .g-container .logo {
+  width: 150px;
+}
+.component-header .mid .g-container .logo a {
+  display: flex;
+  width: 100%;
+}
+.component-header .mid .g-container .logo a img {
+  width: 100%;
+}
+.component-header .mid .g-container .search {
+  display: flex;
+  height: 40px;
+  position: relative;
+  margin-left: 50px;
+  margin-right: 50px;
+  border-radius: 3px;
+  overflow: hidden;
+  flex: 1;
+}
+@media only screen and (max-width: 1025px) {
+  .component-header .mid .g-container .search {
+    width: 100%;
+    flex: unset;
+  }
+}
+.component-header .mid .g-container .search button {
+  width: 100px;
+  height: 100%;
+  border: none;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+.component-header .mid .g-container .search button:hover {
+  background-color: black;
+  color: white;
+}
+.component-header .mid .g-container .search input {
+  flex: 1;
+  width: 100%;
+  padding-left: 40px;
+}
+.component-header .mid .g-container .search .icon {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+}
+.component-header .mid .g-container .right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  margin-left: auto;
+}
+@media only screen and (max-width: 1025px) {
+  .component-header .mid .g-container .right {
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
+.component-header .mid .g-container .right .link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: white;
+  font-size: 15px;
+}
+@media only screen and (max-width: 1025px) {
+  .component-header .mid .g-container .right .link {
+    gap: 5px;
+  }
+}
+.component-header .mid .g-container .right .link .image {
+  font-size: 25px;
+}
+@media only screen and (max-width: 1025px) {
+  .component-header .mid .g-container .right .link .image {
+    font-size: 30px;
+  }
+}
+.component-header .mid .g-container .right .link .text {
+  max-width: 120px;
+}
+@media only screen and (max-width: 1025px) {
+  .component-header .mid .g-container .right .link .text {
+    display: none;
+  }
+}
+.component-header .mid .g-container .right .cart-contents-count {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 2px white solid;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+  white-space: nowrap;
+}
+@media only screen and (max-width: 1025px) {
+  .component-header .mid .g-container .right .cart-contents-count {
+    margin-left: auto;
+  }
+}
+.component-header .mid .g-container .right .cart-contents-count .cart-count {
+  background: white;
+  color: black;
+  padding: 4px;
+  border-radius: 3px;
+  font-size: 10px;
+}
+.component-header .bot {
+  background: #ff9900;
+}
+@media only screen and (max-width: 1025px) {
+  .component-header .bot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 100;
+    width: 70vw;
+  }
+}
+.component-header .bot.hide {
+  display: none;
+}
+.component-header .bot .g-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.component-header .bot .g-container .left {
+  position: relative;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.component-header .bot .g-container .left i {
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.component-header .bot .g-container .left .text {
+  font-size: 18px;
+  cursor: pointer;
+}
+.component-header .bot .g-container .left .menu {
+  position: absolute;
+  bottom: -16px;
+  left: 0;
+  transform: translateY(100%);
+  list-style: none;
+  background: #ff9900;
+  width: 300px;
+  z-index: 1;
+}
+@media only screen and (max-width: 1025px) {
+  .component-header .bot .g-container .left .menu {
+    width: 70vw;
+    left: -16px;
+  }
+}
+.component-header .bot .g-container .left .menu li {
+  position: relative;
+}
+.component-header .bot .g-container .left .menu li:hover > a {
+  color: white;
+}
+.component-header .bot .g-container .left .menu li:hover > a span {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7469%) hue-rotate(129deg) brightness(119%) contrast(94%);
+}
+.component-header .bot .g-container .left .menu li:hover > a ~ .sub-menu {
+  visibility: visible;
+}
+.component-header .bot .g-container .left .menu li a {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  font-size: 16px;
+  padding-left: 50px;
+  position: relative;
+  color: black;
+}
+.component-header .bot .g-container .left .menu li a::before {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-50%);
+  content: "";
+  background: url("../images/menu-item.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 1;
+}
+.component-header .bot .g-container .left .menu li:not(:last-child) a {
+  border-bottom: 1px white solid;
+}
+.component-header .bot .g-container .left .menu li:has(.sub-menu) > a {
+  position: relative;
+}
+.component-header .bot .g-container .left .menu li:has(.sub-menu) > a span {
+  position: absolute;
+  display: block;
+  top: 50%;
+  right: 8px;
+  width: 10px;
+  height: 10px;
+  transform: translateY(-50%);
+  background: url("../images/arrow-right.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 2;
+}
+@media only screen and (max-width: 1025px) {
+  .component-header .bot .g-container .left .menu li:has(.sub-menu) > a span {
+    width: 30px;
+    height: 100%;
+    background-size: 50%;
+  }
+  .component-header .bot .g-container .left .menu li:has(.sub-menu) > a span.active {
+    transform: translateY(-50%) rotate(90deg);
+  }
+}
+.component-header .bot .g-container .left .menu li .sub-menu {
+  position: absolute;
+  right: 0;
+  transform: translateX(100%);
+  top: 0;
+  background: #ff9900;
+  list-style: none;
+  visibility: hidden;
+  transition: all 100ms ease-in-out;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 5px 0;
+}
+@media only screen and (max-width: 1025px) {
+  .component-header .bot .g-container .left .menu li .sub-menu {
+    position: relative;
+    left: 0;
+    transform: unset;
+    visibility: visible;
+    box-shadow: none;
+    display: none;
+  }
+  .component-header .bot .g-container .left .menu li .sub-menu.active {
+    display: block;
+  }
+}
+.component-header .bot .g-container .left .menu li .sub-menu:hover {
+  visibility: visible;
+}
+.component-header .bot .g-container .left .menu li .sub-menu li a {
+  border-bottom: 0;
+  padding: 5px 15px;
+  padding-left: 30px;
+}
+@media only screen and (max-width: 1025px) {
+  .component-header .bot .g-container .left .menu li .sub-menu li a {
+    padding-left: 50px;
+  }
+}
+.component-header .bot .g-container .left .menu li .sub-menu li a::before {
+  background: url("../images/r7.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 10px;
+  height: 10px;
+  left: 10px;
+}
+@media only screen and (max-width: 1025px) {
+  .component-header .bot .g-container .left .menu li .sub-menu li a::before {
+    left: 20px;
+  }
+}
+.component-header .bot .g-container .right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+@media only screen and (max-width: 1025px) {
+  .component-header .bot .g-container .right {
+    display: none;
+  }
+}
+.component-header .bot .g-container .right .info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-size: 15px;
+}
+.component-header .bot .g-container .right .info i {
+  font-size: 25px;
+}
+
+/*# sourceMappingURL=main.css.map */

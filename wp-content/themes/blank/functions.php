@@ -1,5 +1,4 @@
 <?php
-include 'customizer.php';
 function my_custom_wc_theme_support()
 {
     add_theme_support('custom-logo');
@@ -33,6 +32,3 @@ function iconic_cart_count_fragments($fragments)
     $fragments['.cart-contents-count'] = $mini_cart;
     return $fragments;
 }
-
-remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
-

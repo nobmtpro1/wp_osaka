@@ -10,32 +10,82 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="<?= bloginfo('template_directory') ?>/assets/css/style.css?a<?= time() ?>=<?= time() ?>" rel="stylesheet" />
+    <link href="<?= bloginfo('template_directory') ?>/assets/css/main.css?v=<?= time() ?>" rel="stylesheet" />
 </head>
 
 <body <?php body_class() ?>>
 
-    <header class="header">
-        <div class="logo">
-            <?= the_custom_logo() ?>
+    <header class="component-header">
+        <div class="top">
+            <div class="g-container">
+                <ul>
+                    <li> <i class="fa-solid fa-location-dot"></i> 33 Trần Quý Khoách, P.Tân Định, Q.1, Tp.HCM
+                    </li>
+                    <li><i class="fa-solid fa-envelope"></i>contact@osaka.com.vn</li>
+                    <li><i class="fa-solid fa-phone"></i>0949 411 317</li>
+                </ul>
+            </div>
         </div>
-        <?php wp_nav_menu() ?>
-        <div class="links">
-            <form class="search" action="<?= bloginfo('url') ?>">
-                <input type="hidden" name="post_type" value="product">
-                <input type="text" id="search-input" placeholder="Tìm kiếm....." name="s">
-            </form>
-            <!-- <a href="<?= bloginfo('url') ?>/wishlist" class="account">
-                <i class="fa-solid fa-heart"></i>
-            </a> -->
-            <a href="<?= bloginfo('url') ?>/my-account" class="account">
-                <i class="fa-solid fa-user"></i>
-            </a>
-            <?php include 'mini-cart.php' ?>
-            <div class="hamburger">
-                <i class="fa-solid fa-bars fa-2xl"></i>
+        <div class="mid">
+            <div class="g-container">
+                <div class="logo">
+                    <?= the_custom_logo() ?>
+                </div>
+                <form class="search" action="<?= bloginfo('url') ?>">
+                    <div class="icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <input type="hidden" name="post_type" value="product">
+                    <input type="text" placeholder="Nhập tên sản phẩm..." name="s">
+                    <button>Tìm kiếm</button>
+                </form>
+                <div class="right">
+                    <a class="link" href="">
+                        <div class="image">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </div>
+                        <div class="text">
+                            Kiểm tra <br> đơn hàng
+                        </div>
+                    </a>
+                    <a class="link" href="">
+                        <div class="image">
+                            <i class="fa-solid fa-circle-user"></i>
+                        </div>
+                        <div class="text">
+                            <b>Đăng nhập</b><br>
+                            Chi tiết tài khoản
+                        </div>
+                    </a>
+                    <a class="cart" href="<?= bloginfo('url') ?>/cart">
+                        <?php include 'mini-cart.php' ?>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <div class="bot">
+            <div class="g-container">
+                <div class="left">
+                    <i class="fa-solid fa-bars"></i> <span class="text">DANH MỤC SẢN PHẨM</span>
+                    <?php wp_nav_menu() ?>
+                </div>
+                <div class="right">
+                    <div class="info">
+                        <i class="fa fa-truck"></i>
+                        Giao Hàng Toàn Quốc
+                    </div>
+                    <div class="info">
+                        <i class="fa-solid fa-money-bill"></i>
+                        Đổi trong vòng 7 ngày
+                    </div>
+                    <div class="info">
+                        <i class="fa fa-umbrella"></i>
+                        100% sản phẩm chính hãng
+                    </div>
+                </div>
             </div>
         </div>
     </header>

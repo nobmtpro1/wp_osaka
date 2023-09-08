@@ -1,5 +1,5 @@
 <?php get_header() ?>
-<div class="container">
+<div class="g-container">
     <?php the_content() ?>
 </div>
 <?php get_footer() ?>

@@ -1,0 +1,10 @@
+@charset "utf-8";
+@import "variables";
+@import "mixin";
+@import "reset";
+@import "general";
+
+@import "./pages/home";
+
+//--------import_component---------
+@import "./component/header";

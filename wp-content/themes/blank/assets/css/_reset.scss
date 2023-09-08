@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  font-weight: normal;
+  line-height: normal;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  color: currentColor;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+select,
+textarea {
+  outline: none;
+  border: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}

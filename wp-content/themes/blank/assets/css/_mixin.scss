@@ -1,0 +1,28 @@
+@use "sass:math";
+@mixin desktop {
+  @media only screen and (min-width: 1026px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media only screen and (max-width: 1025px) {
+    @content;
+  }
+}
+
+@mixin button-hover-light {
+  transition: all 300ms ease-in-out;
+  &:hover {
+    background-color: white;
+    color: black;
+  }
+}
+
+@mixin button-hover-dark {
+  transition: all 300ms ease-in-out;
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+}
