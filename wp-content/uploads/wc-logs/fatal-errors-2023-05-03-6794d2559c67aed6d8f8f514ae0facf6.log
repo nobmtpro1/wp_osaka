@@ -1,0 +1,6 @@
+2023-05-03T11:13:58+00:00 CRITICAL Cannot redeclare storefront_do_shortcode() (previously declared in C:\xampp\htdocs\woo2\wp-content\themes\storefront-child\inc\storefront-functions.php:28) in C:\xampp\htdocs\woo2\wp-content\themes\storefront\inc\storefront-functions.php on line 28
+
+2023-05-03T11:14:33+00:00 CRITICAL require(): Failed opening required 'inc/storefront-functions.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\woo2\wp-content\themes\storefront-child\functions.php on line 31
+
+2023-05-03T11:14:36+00:00 CRITICAL require(): Failed opening required 'inc/storefront-functions.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\woo2\wp-content\themes\storefront-child\functions.php on line 31
+

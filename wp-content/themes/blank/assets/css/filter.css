@@ -1,0 +1,12 @@
+.bapf_head h3{
+    margin-block-start: 1em;
+    margin-block-end: 0.5em;
+}
+
+.bapf_body ul{
+    padding: 0;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

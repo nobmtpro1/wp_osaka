@@ -1,0 +1,22 @@
+2023-05-13T07:56:40+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function Kirki\Panel::__construct(), 0 passed in C:\xampp\htdocs\woo2\wp-content\themes\myfashion\customizer.php on line 4 and at least 1 expected in C:\xampp\htdocs\woo2\wp-content\plugins\kirki\kirki-packages\module-panels\src\Panel.php:56
+Stack trace:
+#0 C:\xampp\htdocs\woo2\wp-content\themes\myfashion\customizer.php(4): Kirki\Panel->__construct()
+#1 C:\xampp\htdocs\woo2\wp-content\themes\myfashion\functions.php(2): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\woo2\wp-settings.php(591): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\woo2\wp-config.php(99): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\woo2\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\woo2\wp-admin\admin.php(34): require_once('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\woo2\wp-admin\customize.php(13): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+  thrown in C:\xampp\htdocs\woo2\wp-content\plugins\kirki\kirki-packages\module-panels\src\Panel.php on line 56
+
+2023-05-13T08:20:42+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function add_input(), 4 passed in C:\xampp\htdocs\woo2\wp-content\themes\myfashion\customizer.php on line 59 and exactly 5 expected in C:\xampp\htdocs\woo2\wp-content\themes\myfashion\customizer.php:8
+Stack trace:
+#0 C:\xampp\htdocs\woo2\wp-content\themes\myfashion\customizer.php(59): add_input(Object(WP_Customize_Manager), 'text', 'banner', 'banner_title_1')
+#1 C:\xampp\htdocs\woo2\wp-includes\class-wp-hook.php(308): theme_name_register_theme_customizer(Object(WP_Customize_Manager))
+#2 C:\xampp\htdocs\woo2\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#3 C:\xampp\htdocs\woo2\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#4 C:\xampp\htdocs\woo2\wp-includes\class-wp-customize-manager.php(934): do_action('customize_regis...', Object(WP_Customize_Manager))
+#5 C:\xampp\htdocs\woo2\wp-includes\class-wp-hook.php(308): WP_Customize_Manager->wp_loaded('')
+#6 C:\xampp\htdocs\woo2\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filt in C:\xampp\htdocs\woo2\wp-content\themes\myfashion\customizer.php on line 8
+

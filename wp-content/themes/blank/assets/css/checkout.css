@@ -1,0 +1,21 @@
+.my-place-order-button {
+  background: black !important;
+  color: white !important;
+  font-weight: 600 !important;
+  border-radius: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 20px !important;
+  width: 100% !important;
+}
+
+.my-billing-form{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.my-billing-form > p{
+    width: 100% !important;
+}

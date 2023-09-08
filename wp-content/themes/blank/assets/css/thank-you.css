@@ -1,0 +1,33 @@
+.woocommerce-thankyou-order-details {
+  padding: 0;
+}
+.wc-bacs-bank-details.order_details.bacs_details {
+  padding: 0;
+}
+
+.my-bank-description {
+  font-weight: bold;
+  background: black;
+  display: inline-block;
+  color: white;
+  padding: 20px;
+}
+
+.woocommerce-bacs-bank-details {
+  background: black;
+  display: inline-block;
+  color: white;
+  padding: 20px;
+}
+@media only screen and (max-width: 1025px) {
+  .woocommerce-thankyou-order-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .wc-bacs-bank-details.order_details.bacs_details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

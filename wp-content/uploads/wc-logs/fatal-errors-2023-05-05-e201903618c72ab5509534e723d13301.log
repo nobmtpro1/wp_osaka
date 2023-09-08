@@ -1,0 +1,16 @@
+2023-05-05T13:13:06+00:00 CRITICAL require_once(): Failed opening required 'loop-product' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\woo2\wp-content\themes\mytheme\functions.php on line 27
+
+2023-05-05T13:15:07+00:00 CRITICAL require_once(): Failed opening required 'loop-product' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\woo2\wp-content\themes\mytheme\functions.php on line 27
+
+2023-05-05T13:16:02+00:00 CRITICAL require_once(): Failed opening required 'loop-product' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\woo2\wp-content\themes\mytheme\functions.php on line 27
+
+2023-05-05T14:14:31+00:00 CRITICAL Uncaught Error: Function name must be a string in C:\xampp\htdocs\woo2\wp-content\themes\mytheme\index.php:11
+Stack trace:
+#0 C:\xampp\htdocs\woo2\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\woo2\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\woo2\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\woo2\wp-content\themes\mytheme\index.php on line 11
+
+2023-05-05T15:05:14+00:00 CRITICAL syntax error, unexpected end of file, expecting ';' or ',' in C:\xampp\htdocs\woo2\wp-content\themes\mytheme\woocommerce\global\sidebar.php on line 27
+

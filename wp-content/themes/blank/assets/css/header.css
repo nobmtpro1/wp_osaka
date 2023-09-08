@@ -1,0 +1,199 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 100px;
+  box-shadow: 0 2px 2px -2px gray;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100vw;
+  background: white;
+}
+
+.header .logo img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+}
+
+.header .menu {
+  display: flex;
+  list-style: none;
+  justify-content: flex-start;
+  gap: 30px;
+  font-size: 20px;
+  font-weight: 500;
+  align-items: center;
+  height: 50px;
+  margin: 0;
+}
+
+.header .menu > li {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.header .menu > li:hover > .sub-menu {
+  display: flex;
+}
+
+.header .menu .sub-menu {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  transform: translateY(100%);
+  z-index: 1;
+  padding-left: 0;
+  padding: 20px;
+  list-style: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background: white;
+}
+
+.menu-item-has-children::after {
+  content: "▾";
+  position: relative;
+}
+
+.header .links {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.header .links .cart-contents-count {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.header .search input {
+  border: none;
+  border-bottom: 1px black solid;
+  height: 20px;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.header .search input:focus {
+  outline: none;
+}
+
+.cart-contents-count > a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+}
+
+.cart-contents-count > a > span {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15px;
+  height: 15px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  font-size: 10px;
+}
+
+.hamburger {
+  display: none;
+}
+
+@media only screen and (max-width: 1025px) {
+  .menu-item-has-children::after {
+    display: none;
+  }
+  .header .logo img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+  }
+  .hamburger {
+    display: block;
+  }
+  .header {
+    padding: 15px;
+  }
+  .header .menu-menu-chinh-container {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    height: 100vh;
+    width: 50vw;
+    background: black;
+    color: white;
+  }
+
+  .header .menu-menu-chinh-container.active {
+    display: block;
+  }
+
+  .header .menu-menu-chinh-container > .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: transparent;
+    color: white;
+    height: 100%;
+    width: 100%;
+    padding-left: 15px;
+    padding: 15px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .header .menu-menu-chinh-container > .menu li {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header .menu-menu-chinh-container > .menu a {
+    color: white;
+  }
+
+  .header .menu-menu-chinh-container .sub-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: transparent;
+    color: white;
+    height: 100%;
+    width: 100%;
+    padding-left: 15px;
+    padding: 15px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+    top: unset;
+    left: unset;
+    bottom: unset;
+    transform: unset;
+  }
+
+  .header .search input {
+    width: 120px;
+  }
+
+  .header .links {
+    width: 100%;
+  }
+}
