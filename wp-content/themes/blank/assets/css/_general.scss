@@ -9,3 +9,23 @@
     padding-left: 16px;
   }
 }
+
+.g-button {
+  border: 1px $secondary-color solid;
+  padding: 10px 25px;
+  color: $secondary-color;
+  font-size: 15px;
+  display: inline-block;
+  border-radius: 3px;
+
+  @include button-hover-dark;
+}
+
+@keyframes scale0to1 {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}

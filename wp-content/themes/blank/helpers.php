@@ -18,7 +18,7 @@ if (!function_exists('get_percent_sale')) {
                 }
             }
             // We keep the highest value
-            $percentage = max($percentages) . '%';
+            $percentage = @max($percentages) ? @max($percentages) . '%' : "";
         } elseif ($product->is_type('grouped')) {
             $percentages = array();
 
@@ -66,5 +66,27 @@ if (!function_exists('my_woocommerce_product_loop_title_classes')) {
     {
         $output .= " w-loop-title";
         return $output;
+    }
+}
+
+if (!function_exists('get_products_by_category')) {
+    function get_products_by_category($category_id, $number)
+    {
+        $args = array(
+            'post_type'             => 'product',
+            'post_status'           => 'publish',
+            'ignore_sticky_posts'   => 1,
+            'posts_per_page'        => $number,
+            'tax_query'             => array(
+                array(
+                    'taxonomy'      => 'product_cat',
+                    'field' => 'term_id', //This is optional, as it defaults to 'term_id'
+                    'terms'         => $category_id,
+                    'operator'      => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
+                )
+            )
+        );
+        $products = new WP_Query($args);
+        return $products;
     }
 }
