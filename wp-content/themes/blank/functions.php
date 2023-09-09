@@ -1,4 +1,6 @@
 <?php
+require_once 'const.php';
+
 function my_custom_wc_theme_support()
 {
     add_theme_support('custom-logo');

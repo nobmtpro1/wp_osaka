@@ -53,7 +53,82 @@ textarea:focus {
 }
 
 .page-home {
-  color: red;
+  min-height: 100vh;
+}
+.page-home section.banner {
+  padding-top: 15px;
+  padding-bottom: 20px;
+  padding-left: 315px;
+}
+.page-home section.banner .swiper-slide {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+.page-home section.banner .swiper-slide a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.page-home section.banner .swiper-slide a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.page-home section.new-products {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.page-home section.new-products .title {
+  font-size: 25px;
+  font-weight: 500;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.page-home section.new-products .description {
+  font-size: 20px;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.page-home section.new-products .tabs .tab-titles {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+.page-home section.new-products .tabs .tab-titles li {
+  cursor: pointer;
+}
+.page-home section.new-products .tabs .tab-titles li:hover, .page-home section.new-products .tabs .tab-titles li.active {
+  color: #ff9900;
+}
+.page-home section.new-products .tabs .tab-contents {
+  list-style: none;
+}
+.page-home section.new-products .tabs .tab-contents > li {
+  display: none;
+}
+.page-home section.new-products .tabs .tab-contents > li.active {
+  display: block;
+}
+.page-home section.new-products .tabs .tab-contents > li .products li {
+  animation: example3 500ms;
+}
+@keyframes example3 {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 .component-header .top {
@@ -108,6 +183,9 @@ textarea:focus {
     padding-top: 7px;
     padding-bottom: 7px;
   }
+  .component-header .mid.stick .g-container .menu-button {
+    top: 7px;
+  }
   .component-header .mid.stick .g-container .logo {
     width: 120px;
   }
@@ -121,12 +199,26 @@ textarea:focus {
   gap: 20px;
   padding-top: 15px;
   padding-bottom: 15px;
+  position: relative;
 }
 @media only screen and (max-width: 1025px) {
   .component-header .mid .g-container {
     flex-direction: column;
     width: 100%;
     gap: 7px;
+  }
+}
+.component-header .mid .g-container .menu-button {
+  display: none;
+}
+@media only screen and (max-width: 1025px) {
+  .component-header .mid .g-container .menu-button {
+    display: block;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    color: white;
+    font-size: 30px;
   }
 }
 .component-header .mid .g-container .logo {
@@ -252,10 +344,35 @@ textarea:focus {
     height: 100vh;
     z-index: 100;
     width: 70vw;
+    display: none !important;
+    background: transparent;
+  }
+  .component-header .bot.active-mobile {
+    display: block !important;
   }
 }
 .component-header .bot.hide {
   display: none;
+}
+@media only screen and (max-width: 1025px) {
+  .component-header .bot.hide {
+    display: block;
+  }
+}
+.component-header .bot .mobile-backdrop {
+  display: none;
+}
+@media only screen and (max-width: 1025px) {
+  .component-header .bot .mobile-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.407);
+    z-index: -1;
+    display: block;
+  }
 }
 .component-header .bot .g-container {
   display: flex;
@@ -265,6 +382,26 @@ textarea:focus {
   padding-top: 15px;
   padding-bottom: 15px;
 }
+@media only screen and (max-width: 1025px) {
+  .component-header .bot .g-container {
+    animation: example2 500ms ease-in-out;
+    padding: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    background: #ff9900;
+    height: 100vh;
+    overflow: auto;
+    justify-content: flex-start;
+  }
+  @keyframes example2 {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+}
 .component-header .bot .g-container .left {
   position: relative;
   color: white;
@@ -272,12 +409,30 @@ textarea:focus {
   align-items: center;
   gap: 10px;
 }
-.component-header .bot .g-container .left i {
+@media only screen and (max-width: 1025px) {
+  .component-header .bot .g-container .left {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+  }
+}
+.component-header .bot .g-container .left .menu-button {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+@media only screen and (max-width: 1025px) {
+  .component-header .bot .g-container .left .menu-button {
+    padding: 16px;
+  }
+}
+.component-header .bot .g-container .left .menu-button i {
   font-size: 25px;
   font-weight: bold;
   cursor: pointer;
 }
-.component-header .bot .g-container .left .text {
+.component-header .bot .g-container .left .menu-button .text {
   font-size: 18px;
   cursor: pointer;
 }
@@ -289,13 +444,20 @@ textarea:focus {
   list-style: none;
   background: #ff9900;
   width: 300px;
-  z-index: 1;
+  z-index: 99;
 }
 @media only screen and (max-width: 1025px) {
   .component-header .bot .g-container .left .menu {
     width: 70vw;
     left: -16px;
+    position: relative;
+    bottom: unset;
+    left: unset;
+    transform: unset;
   }
+}
+.component-header .bot .g-container .left .menu.hide {
+  display: none;
 }
 .component-header .bot .g-container .left .menu li {
   position: relative;

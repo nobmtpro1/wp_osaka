@@ -41,6 +41,10 @@
         .g-container {
           padding-top: 7px;
           padding-bottom: 7px;
+
+          .menu-button {
+            top: 7px;
+          }
           .logo {
             width: 120px;
           }
@@ -69,6 +73,19 @@
       gap: 20px;
       padding-top: 15px;
       padding-bottom: 15px;
+      position: relative;
+
+      .menu-button {
+        @include mobile {
+          display: block;
+          position: absolute;
+          top: 16px;
+          left: 16px;
+          color: white;
+          font-size: 30px;
+        }
+        display: none;
+      }
 
       .logo {
         width: 150px;
@@ -186,13 +203,55 @@
       height: 100vh;
       z-index: 100;
       width: 70vw;
+      display: none !important;
+      background: transparent;
+
+      &.active-mobile {
+        display: block !important;
+      }
     }
     background: $primary-color;
 
     &.hide {
+      @include mobile {
+        display: block;
+      }
       display: none;
     }
+
+    .mobile-backdrop {
+      @include mobile {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.407);
+        z-index: -1;
+        display: block;
+      }
+      display: none;
+    }
+
     .g-container {
+      @include mobile {
+        @keyframes example2 {
+          from {
+            transform: translateX(-100%);
+          }
+          to {
+            transform: translateX(0%);
+          }
+        }
+        animation: example2 500ms ease-in-out;
+        padding: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        background: $primary-color;
+        height: 100vh;
+        overflow: auto;
+        justify-content: flex-start;
+      }
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -201,26 +260,45 @@
       padding-bottom: 15px;
 
       .left {
+        @include mobile {
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+          height: 100%;
+        }
         position: relative;
         color: white;
         display: flex;
         align-items: center;
         gap: 10px;
-        i {
-          font-size: 25px;
-          font-weight: bold;
-          cursor: pointer;
-        }
 
-        .text {
-          font-size: 18px;
-          cursor: pointer;
+        .menu-button {
+          @include mobile {
+            padding: 16px;
+          }
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          i {
+            font-size: 25px;
+            font-weight: bold;
+            cursor: pointer;
+          }
+
+          .text {
+            font-size: 18px;
+            cursor: pointer;
+          }
         }
 
         .menu {
           @include mobile {
             width: 70vw;
             left: -16px;
+            position: relative;
+            bottom: unset;
+            left: unset;
+            transform: unset;
           }
           position: absolute;
           bottom: -16px;
@@ -229,7 +307,11 @@
           list-style: none;
           background: $primary-color;
           width: 300px;
-          z-index: 1;
+          z-index: 99;
+
+          &.hide {
+            display: none;
+          }
 
           li {
             position: relative;
@@ -287,9 +369,9 @@
                     width: 30px;
                     height: 100%;
                     background-size: 50%;
-                    
-                    &.active{
-                        transform: translateY(-50%) rotate(90deg);
+
+                    &.active {
+                      transform: translateY(-50%) rotate(90deg);
                     }
                   }
                   position: absolute;
