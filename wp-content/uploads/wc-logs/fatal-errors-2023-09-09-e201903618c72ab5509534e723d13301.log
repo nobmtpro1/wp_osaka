@@ -2,3 +2,36 @@
 
 2023-09-09T04:02:11+00:00 CRITICAL require_once(): Failed opening required './const.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php on line 2
 
+2023-09-09T05:34:41+00:00 CRITICAL Uncaught Error: Call to undefined function get_percent_sale() in C:\xampp\htdocs\osaka\wp-content\themes\blank\woocommerce\content-product.php:53
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-includes\template.php(787): require()
+#1 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-products.php(660): wc_get_template_part('content', 'product')
+#3 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-products.php(100): WC_Shortcode_Products->product_loop()
+#4 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\class-wc-shortcodes.php(283): WC_Shortcode_Products->get_content()
+#5 C:\xampp\htdocs\osaka\wp-includes\shortcodes.php(395): WC_Shortcodes::products(Array, '', 'products')
+#6 [internal function]: do_shortcode_tag(Array)
+#7 C:\xampp\htdocs\osaka\wp-includes\shortcodes.php(235): preg_repl in C:\xampp\htdocs\osaka\wp-content\themes\blank\woocommerce\content-product.php on line 53
+
+2023-09-09T05:34:45+00:00 CRITICAL Uncaught Error: Call to undefined function get_percent_sale() in C:\xampp\htdocs\osaka\wp-content\themes\blank\woocommerce\content-product.php:53
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-includes\template.php(787): require()
+#1 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-products.php(660): wc_get_template_part('content', 'product')
+#3 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-products.php(100): WC_Shortcode_Products->product_loop()
+#4 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\class-wc-shortcodes.php(283): WC_Shortcode_Products->get_content()
+#5 C:\xampp\htdocs\osaka\wp-includes\shortcodes.php(395): WC_Shortcodes::products(Array, '', 'products')
+#6 [internal function]: do_shortcode_tag(Array)
+#7 C:\xampp\htdocs\osaka\wp-includes\shortcodes.php(235): preg_repl in C:\xampp\htdocs\osaka\wp-content\themes\blank\woocommerce\content-product.php on line 53
+
+2023-09-09T05:34:51+00:00 CRITICAL Uncaught Error: Call to undefined function get_percent_sale() in C:\xampp\htdocs\osaka\wp-content\themes\blank\woocommerce\content-product.php:53
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-includes\template.php(787): require()
+#1 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-products.php(660): wc_get_template_part('content', 'product')
+#3 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\shortcodes\class-wc-shortcode-products.php(100): WC_Shortcode_Products->product_loop()
+#4 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\class-wc-shortcodes.php(283): WC_Shortcode_Products->get_content()
+#5 C:\xampp\htdocs\osaka\wp-includes\shortcodes.php(395): WC_Shortcodes::products(Array, '', 'products')
+#6 [internal function]: do_shortcode_tag(Array)
+#7 C:\xampp\htdocs\osaka\wp-includes\shortcodes.php(235): preg_repl in C:\xampp\htdocs\osaka\wp-content\themes\blank\woocommerce\content-product.php on line 53
+

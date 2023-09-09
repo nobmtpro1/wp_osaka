@@ -1,5 +1,6 @@
 <?php
 require_once 'const.php';
+require_once 'helpers.php';
 
 function my_custom_wc_theme_support()
 {
@@ -34,3 +35,5 @@ function iconic_cart_count_fragments($fragments)
     $fragments['.cart-contents-count'] = $mini_cart;
     return $fragments;
 }
+
+add_filter('woocommerce_product_loop_title_classes', 'my_woocommerce_product_loop_title_classes');

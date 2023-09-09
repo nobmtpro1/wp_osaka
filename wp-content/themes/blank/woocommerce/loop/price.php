@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Loop Price
  *
@@ -15,13 +16,17 @@
  * @version     1.6.4
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly
 }
 
 global $product;
+$percent_sale = get_percent_sale($product);
 ?>
 
-<?php if ( $price_html = $product->get_price_html() ) : ?>
-	<span class="price"><?php echo $price_html; ?></span>
+<?php if ($price_html = $product->get_price_html()) : ?>
+	<span class="price w-loop-price">
+		<span class="w-loop-price-sale-percent"><?= $percent_sale ? "Tiết kiệm " . get_percent_sale($product) : "" ?> </span>
+		<?php echo $price_html; ?>
+	</span>
 <?php endif; ?>
