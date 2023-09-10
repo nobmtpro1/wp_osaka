@@ -1,6 +1,7 @@
 @charset "utf-8";
 @import "variables";
 @import "mixin";
+@import "animations";
 @import "reset";
 @import "general";
 @import "woocommerce";
@@ -9,3 +10,5 @@
 
 //--------import_component---------
 @import "./component/header";
+@import "./component/footer";
+@import "./component/modal";

@@ -96,8 +96,8 @@ $fields = get_fields();
     </section>
 
     <section class="new-products g-container">
-        <h2 class="title"><span class="line"></span> <span class="text"><i class="fa-solid fa-xmark"></i>SẢN PHẨM MỚI <i class="fa-solid fa-xmark"></i></span> <span class="line"></span></h2>
-        <p class="description">MUA SẮM NGAY ĐI, HÀNG MỚI NHẬP KHẨU, MẪU MÃ ĐẸP, GIÁ SALE</p>
+        <h2 class="g-title"><span class="line"></span> <span class="text"><i class="fa-solid fa-xmark"></i>SẢN PHẨM MỚI <i class="fa-solid fa-xmark"></i></span> <span class="line"></span></h2>
+        <p class="g-description">MUA SẮM NGAY ĐI, HÀNG MỚI NHẬP KHẨU, MẪU MÃ ĐẸP, GIÁ SALE</p>
         <div class="tabs">
             <ul class="tab-titles">
                 <li class="active">SẢN PHẨM MỚI</li>
@@ -121,74 +121,114 @@ $fields = get_fields();
         </a>
     </section>
 
-    <section class="product-category g-container">
-        <div class="left">
-            <h2 class="title">NỒI CƠM - ÁP SUẤT</h2>
-            <ul class="tabs">
-                <li class="active">Nồi cơm điện 2D</li>
-                <li>Nồi cơm điện 3D</li>
-                <li>Nồi cơm Mê Kông</li>
-            </ul>
-            <div class="navigation">
-                <div class="nav-left">
-                    <div class="button">
-                        <i class="fa-solid fa-chevron-left"></i>
+    <?php $all_categories =  @get_all_categories() ?? [] ?>
+    <?php foreach ($all_categories as $category) : ?>
+        <?php
+        if ($category->parent !== 0) {
+            continue;
+        }
+        $count_sub_category = 0;
+        foreach ($all_categories as $sub_category) {
+            if ($sub_category->parent == $category->term_id) {
+                $count_sub_category++;
+            }
+        }
+        if ($count_sub_category == 0) {
+            continue;
+        }
+        ?>
+        <section class="product-category">
+            <div class="g-container">
+                <div class="left">
+                    <h2 class="title"><?= $category->name ?></h2>
+                    <ul class="tabs">
+                        <?php $i = 0; ?>
+                        <?php foreach ($all_categories as $sub_category) : ?>
+                            <?php
+                            if ($sub_category->parent !== $category->term_id) {
+                                continue;
+                            }
+                            $i++;
+                            ?>
+                            <li class="<?= $i == 1 ? "active" : "" ?>"><?= $sub_category->name ?></li>
+                        <?php endforeach ?>
+                    </ul>
+                    <div class="navigation">
+                        <div class="nav-left">
+                            <div class="button">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </div>
+                        </div>
+                        <div class="nav-right">
+                            <div class="button">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="nav-right">
-                    <div class="button">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
+                <div class="right">
+                    <ul class="tab-contents">
+                        <?php $i = 0; ?>
+                        <?php foreach ($all_categories as $sub_category) : ?>
+                            <?php
+                            if ($sub_category->parent !== $category->term_id) {
+                                continue;
+                            }
+                            $i++;
+                            ?>
+                            <li class="<?= $i == 1 ? "active" : "" ?>">
+                                <?php
+                                $products = get_products_by_category($sub_category->term_id, 12);
+                                ?>
+                                <div class="woocommerce">
+                                    <ul class="products w-loop-1-row">
+                                        <?php
+                                        while ($products->have_posts()) {
+                                            $products->the_post();
+                                            do_action('woocommerce_shop_loop');
+                                            wc_get_template_part('content', 'product');
+                                        }
+                                        ?>
+                                    </ul>
+                                </div>
+                            </li>
+                        <?php endforeach ?>
+                    </ul>
                 </div>
             </div>
-        </div>
-        <div class="right">
-            <ul class="tab-contents">
-                <li class="active">
-                    <?php
-                    $products = get_products_by_category(16, 12);
-                    // dd(get_products_by_category(17, 12))
-                    ?>
-                    <div class="woocommerce">
-                        <ul class="products w-loop-1-row">
-                            <?php
-                            while ($products->have_posts()) {
-                                $products->the_post();
+        </section>
+    <?php endforeach ?>
 
-                                /**
-                                 * Hook: woocommerce_shop_loop.
-                                 */
-                                do_action('woocommerce_shop_loop');
+    <section class="blogs">
+        <div class="g-container">
+            <h2 class="g-title">
+                <span class="line"></span> <span class="text"><i class="fa-solid fa-xmark"></i>TIN TỨC NỔI BẬT <i class="fa-solid fa-xmark"></i></span> <span class="line"></span>
+            </h2>
+            <p class="g-description">Cẩm nang mua sắm, góc chia sẻ</p>
+            <div class="swiper blogs-slider">
+                <div class="swiper-wrapper">
 
-                                wc_get_template_part('content', 'product');
-                            }
-                            ?>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <?php
-                    $products = get_products_by_category(17, 12);
-                    // dd(get_products_by_category(17, 12))
-                    ?>
-                    <div class="woocommerce">
-                        <ul class="products w-loop-1-row">
-                            <?php
-                            while ($products->have_posts()) {
-                                $products->the_post();
-
-                                /**
-                                 * Hook: woocommerce_shop_loop.
-                                 */
-                                do_action('woocommerce_shop_loop');
-
-                                wc_get_template_part('content', 'product');
-                            }
-                            ?>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
+                    <?php for ($i = 0; $i < 10; $i++) : ?>
+                        <div class="swiper-slide">
+                            <div class="blog">
+                                <div class="image">
+                                    <img src="<?= TEMPLATE_DIRECTORY ?>/assets/images/image4.webp" alt="blog">
+                                    <div class="date">
+                                        <div class="day">02</div>
+                                        <div class="year">10/2018</div>
+                                    </div>
+                                </div>
+                                <h3 class="title">Ấm áp cơm gia đình</h3>
+                                <p class="description">"CƠM ĐÂU SAO BẰNG CƠM NHÀ - BÁT CƠM ẤM ÁP MÓN QUÀ TÌNH THÂN" hãy để Osaka sẻ...</p>
+                                <a href="" class="g-button">Xem thêm</a>
+                            </div>
+                        </div>
+                    <?php endfor ?>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
         </div>
     </section>
 </div>

@@ -1,0 +1,38 @@
+.component-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999999999;
+  justify-content: center;
+  align-items: center;
+  transition: all 300ms ease-in-out;
+  display: none;
+  overflow-y: auto;
+
+  &.active {
+    display: flex;
+  }
+
+  .content {
+    padding: 30px;
+    background: white;
+    border-radius: 8px;
+    position: relative;
+    min-width: 200px;
+    min-height: 100px;
+    transition: all 300ms ease-in-out;
+    animation: scale0to1 500ms;
+
+    .close {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      cursor: pointer;
+      color: red;
+      font-size: 20px;
+    }
+  }
+}

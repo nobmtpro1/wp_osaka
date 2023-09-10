@@ -37,3 +37,4 @@ function iconic_cart_count_fragments($fragments)
 }
 
 add_filter('woocommerce_product_loop_title_classes', 'my_woocommerce_product_loop_title_classes');
+add_filter('woocommerce_quantity_input_classes','my_woocommerce_quantity_input_classes');

@@ -21,7 +21,9 @@ if (!defined('ABSPATH')) {
 }
 
 global $product;
-
+$attachment_ids = $product->get_gallery_image_ids();
+$feature_image = wp_get_attachment_image(get_post_thumbnail_id($product->id));
+$random_string = generateRandomString(5)
 ?>
 <div class="w-loop-buttons">
 	<a href="" class="w-loop-preview-button"><i class="fa-solid fa-magnifying-glass-plus"></i></a>
@@ -42,4 +44,41 @@ global $product;
 		$args
 	);
 	?>
+</div>
+
+<div class="component-modal w-loop-preview-modal" data-productid="<?= $random_string ?>">
+	<div class="content w-loop-preview-content">
+		<div class="close"><i class="fa-solid fa-xmark"></i></div>
+		<div class="w-product-modal-content-left">
+			<div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper w-product-gallery-2-<?= $random_string ?> w-product-gallery-2">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<?= $feature_image ?>
+					</div>
+					<?php foreach ($attachment_ids as $image_id) : ?>
+						<div class="swiper-slide">
+							<?= wp_get_attachment_image($image_id); ?>
+						</div>
+					<?php endforeach ?>
+				</div>
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
+			</div>
+			<div thumbsSlider="" class="w-product-gallery swiper w-product-gallery-<?= $random_string ?>">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<?= $feature_image ?>
+					</div>
+					<?php foreach ($attachment_ids as $image_id) : ?>
+						<div class="swiper-slide">
+							<?= wp_get_attachment_image($image_id); ?>
+						</div>
+					<?php endforeach ?>
+				</div>
+			</div>
+		</div>
+		<div class="w-product-modal-content-right w-product-summary summary entry-summary">
+			<?php do_action('woocommerce_single_product_summary'); ?>
+		</div>
+	</div>
 </div>

@@ -71,3 +71,7 @@ $(document).on("click", ".component-header .bot .menu-button", function (e) {
 $(document).on("click", ".component-header .mobile-backdrop", function (e) {
   $(".component-header .bot").toggleClass("active-mobile");
 });
+
+$(document).on("click", ".component-modal .content > .close", function () {
+  $(this).parents(".component-modal").removeClass("active");
+});

@@ -64,19 +64,33 @@ $(document).on(
 
 $(".page-home section.product-category .tabs li").each(function (i) {
   $(this).on("click", function () {
-    $(".page-home section.product-category .tabs li").removeClass("active");
-    $(".page-home section.product-category .tab-contents li").removeClass(
-      "active"
-    );
+    $(this).parent().find("li").removeClass("active");
+    $(this)
+      .parents("section.product-category")
+      .find(".tab-contents > li")
+      .removeClass("active");
     $(this).addClass("active");
 
-    $(".page-home section.product-category .tab-contents > li")?.each(function (
-      e
-    ) {
-      console.log(e, i);
-      if (i == e) {
-        $(this).addClass("active");
-      }
-    });
+    $(this)
+      .parents("section.product-category")
+      .find(".tab-contents > li")
+      ?.each(function (e) {
+        if (i == e) {
+          $(this).addClass("active");
+        }
+      });
   });
+});
+
+var swiper = new Swiper(".blogs-slider", {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
 });

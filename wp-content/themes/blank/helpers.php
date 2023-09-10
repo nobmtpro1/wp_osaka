@@ -51,6 +51,8 @@ if (!function_exists('get_percent_sale')) {
         }
         return $percentage;
     }
+} else {
+    die('get_percent_sale');
 }
 
 if (!function_exists('handle_render_percent_sale')) {
@@ -59,6 +61,8 @@ if (!function_exists('handle_render_percent_sale')) {
         global $product;
         echo ("Tiết kiệm " . get_percent_sale($product));
     }
+} else {
+    die('handle_render_percent_sale');
 }
 
 if (!function_exists('my_woocommerce_product_loop_title_classes')) {
@@ -67,6 +71,8 @@ if (!function_exists('my_woocommerce_product_loop_title_classes')) {
         $output .= " w-loop-title";
         return $output;
     }
+} else {
+    die('my_woocommerce_product_loop_title_classes');
 }
 
 if (!function_exists('get_products_by_category')) {
@@ -89,4 +95,62 @@ if (!function_exists('get_products_by_category')) {
         $products = new WP_Query($args);
         return $products;
     }
+} else {
+    die('get_products_by_category');
+}
+
+
+if (!function_exists('get_all_categories')) {
+    function get_all_categories()
+    {
+        $taxonomy     = 'product_cat';
+        $orderby      = 'name';
+        $show_count   = 0;      // 1 for yes, 0 for no
+        $pad_counts   = 0;      // 1 for yes, 0 for no
+        $hierarchical = 1;      // 1 for yes, 0 for no  
+        $title        = '';
+        $hide_empty = true;
+
+        $args = array(
+            'taxonomy'     => $taxonomy,
+            'orderby'      => $orderby,
+            'show_count'   => $show_count,
+            'pad_counts'   => $pad_counts,
+            'hierarchical' => $hierarchical,
+            'title_li'     => $title,
+            'hide_empty'   => $hide_empty
+        );
+        $all_categories = get_categories($args);
+        return $all_categories;
+    }
+} else {
+    die('get_all_categories');
+}
+
+
+if (!function_exists('generateRandomString')) {
+
+    function generateRandomString($length = 10)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[random_int(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+} else {
+    die('generateRandomString');
+}
+
+if (!function_exists('my_woocommerce_quantity_input_classes')) {
+
+    function my_woocommerce_quantity_input_classes($classes)
+    {
+        $classes[] = "w-quantity-input";
+        return $classes;
+    }
+} else {
+    die('generateRandomString');
 }

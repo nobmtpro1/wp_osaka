@@ -21,11 +21,47 @@
   @include button-hover-dark;
 }
 
-@keyframes scale0to1 {
-  from {
-    transform: scale(0);
+.g-title {
+  font-size: 25px;
+  font-weight: 500;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 5px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+
+  .text {
+    width: auto;
+    i {
+      font-size: 15px;
+      margin: 20px;
+      color: $secondary-color;
+    }
   }
-  to {
-    transform: scale(1);
+
+  .line {
+    flex: 1;
+    height: 1px;
+    border-bottom: 1px #ddd solid;
+    width: 100%;
   }
+}
+
+.g-description {
+  font-size: 20px;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: $primary-color;
+}
+.swiper-pagination-bullet-active{
+  background: $primary-color;
 }
