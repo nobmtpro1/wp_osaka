@@ -79,6 +79,9 @@
                     </div>
 
                     <?php wp_nav_menu() ?>
+                    <script>
+                        document.querySelector(".component-header .menu")?.classList?.add("hide-desktop")
+                    </script>
                 </div>
                 <div class="right">
                     <div class="info">

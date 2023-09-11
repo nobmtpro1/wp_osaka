@@ -1,3 +1,7 @@
+$(document).ready(function () {
+  $(".component-header .menu").removeClass(`hide-desktop`);
+});
+
 var swiper = new Swiper(".bannerSlider", {
   autoplay: {
     delay: 2000,
@@ -92,5 +96,15 @@ var swiper = new Swiper(".blogs-slider", {
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 20,
+    },
+    1025: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
   },
 });

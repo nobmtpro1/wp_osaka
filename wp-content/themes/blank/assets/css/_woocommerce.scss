@@ -108,6 +108,11 @@
 }
 
 .w-loop-1-row {
+  @include mobile{
+    width: 91vw !important;
+    padding: 0 !important;
+    gap: 0 !important;
+  }
   display: grid;
   grid-auto-flow: column;
   gap: 20px;
@@ -137,6 +142,11 @@
   }
 
   .w-loop-product {
+    @include mobile{
+      width: 150px !important;
+      margin: 0 !important;
+      margin-right: 45px !important;
+    }
     margin: 10px !important;
     width: 200px !important;
     flex: 1;
@@ -309,9 +319,13 @@
     font-size: 12px !important;
     margin-bottom: 15px !important;
   }
-  .woocommerce-variation-price .price {
-    font-size: 20px !important;
-    color: #ff0000 !important;
+  .woocommerce-variation-price {
+    .price {
+      font-size: 20px !important;
+      color: #ff0000 !important;
+    }
+
+    margin-bottom: 10px !important;
   }
 }
 

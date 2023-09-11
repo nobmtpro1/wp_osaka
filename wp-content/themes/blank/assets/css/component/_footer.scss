@@ -18,11 +18,17 @@
     }
 
     .wrap {
+      @include mobile{
+        flex-direction: column;
+      }
       display: flex;
       justify-content: space-between;
       gap: 30px;
 
       .left {
+        @include mobile{
+          width: 100%;
+        }
         width: 40%;
 
         .content {
@@ -38,6 +44,9 @@
           }
 
           .row {
+            @include mobile{
+              flex-direction: column;
+            }
             display: flex;
             justify-content: space-between;
             gap: 30px;
@@ -46,6 +55,9 @@
               flex: 1;
 
               .socials {
+                @include mobile{
+                  font-size: 40px;
+                }
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -61,6 +73,9 @@
         flex: 1;
 
         .above {
+          @include mobile{
+            flex-direction: column;
+          }
           display: flex;
           justify-content: space-between;
           gap: 30px;
@@ -80,6 +95,9 @@
 
         .below {
           .form {
+            @include mobile{
+              width: 100%;
+            }
             display: flex;
             gap: 0;
             align-items: center;

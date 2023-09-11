@@ -309,6 +309,13 @@
           width: 300px;
           z-index: 99;
 
+          &.hide-desktop {
+            @include mobile{
+              display: block;
+            }
+            display: none;
+          }
+
           &.hide {
             display: none;
           }

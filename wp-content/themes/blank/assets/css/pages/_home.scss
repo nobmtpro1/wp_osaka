@@ -2,11 +2,18 @@
   min-height: 100vh;
 
   section.banner {
+    @include mobile {
+      padding-left: 16px;
+      padding-bottom: 15px;
+    }
     padding-top: 15px;
     padding-bottom: 20px;
     padding-left: 315px;
 
     .swiper-slide {
+      @include mobile {
+        height: 150px;
+      }
       width: 100%;
       height: 400px;
       overflow: hidden;
@@ -25,11 +32,17 @@
   }
 
   section.grid-images {
+    @include mobile{
+      margin-top: 0;
+    }
     margin-top: 20px;
     margin-bottom: 20px;
     background: #e4e4e4;
     padding: 30px 0;
     .grid-1 {
+      @include mobile {
+        grid-template-columns: 1fr;
+      }
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 10px;
@@ -102,6 +115,9 @@
     }
 
     .grid-2 {
+      @include mobile {
+        grid-template-columns: 1fr;
+      }
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 10px;
@@ -126,11 +142,17 @@
     }
 
     .grid-3 {
+      @include mobile {
+        grid-template-columns: 1fr 1fr;
+      }
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
       gap: 10px;
 
       .grid-item {
+        @include mobile {
+          height: 150px;
+        }
         height: 200px;
         overflow: hidden;
 
@@ -166,6 +188,10 @@
         font-size: 15px;
         margin-bottom: 35px;
         li {
+          @include mobile{
+            text-align: center;
+            flex: 1;
+          }
           cursor: pointer;
           &:hover,
           &.active {
@@ -229,6 +255,9 @@
     border-bottom: 20px #e4e4e4 solid;
 
     .g-container {
+      @include mobile{
+        flex-direction: column;
+      }
       display: flex;
       justify-content: space-between;
       gap: 17px;
@@ -245,6 +274,9 @@
       }
 
       .tabs {
+        @include mobile{
+          margin-bottom: 0;
+        }
         list-style: none;
         display: flex;
         flex-direction: column;
@@ -266,6 +298,9 @@
             position: relative;
 
             &::before {
+              @include mobile{
+                display: none;
+              }
               position: absolute;
               content: "";
               right: 0;
@@ -283,6 +318,9 @@
       }
 
       .navigation {
+        @include mobile{
+          display: none;
+        }
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -356,7 +394,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
     border-bottom: 20px #e4e4e4 solid;
-    
+
     .blogs-slider {
       .swiper-slide {
         height: 550px;
@@ -403,12 +441,12 @@
             }
           }
 
-          .title{
+          .title {
             font-size: 20px;
             font-weight: 500;
           }
 
-          .description{
+          .description {
             font-size: 15px;
             margin-bottom: 20px;
           }
