@@ -310,13 +310,16 @@
           z-index: 99;
 
           &.hide-desktop {
-            @include mobile{
+            @include mobile {
               display: block;
             }
             display: none;
           }
 
           &.hide {
+            @include desktop {
+              display: block;
+            }
             display: none;
           }
 

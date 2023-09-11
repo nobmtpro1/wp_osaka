@@ -66,6 +66,7 @@ $(document).on("click", ".component-header .menu-button", function (e) {
 
 $(document).on("click", ".component-header .bot .menu-button", function (e) {
   $(".component-header .bot .menu").toggleClass("hide");
+  $(".component-header .bot .menu").toggleClass("hide-desktop");
 });
 
 $(document).on("click", ".component-header .mobile-backdrop", function (e) {
@@ -75,3 +76,7 @@ $(document).on("click", ".component-header .mobile-backdrop", function (e) {
 $(document).on("click", ".component-modal .content > .close", function () {
   $(this).parents(".component-modal").removeClass("active");
 });
+
+$(document).on("click",".g-shop-filter > button",function () {
+  $(".g-shop-filter-modal").toggleClass("active")
+})

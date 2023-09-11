@@ -25,16 +25,8 @@ function initTheme()
 }
 
 add_action('init', 'initTheme');
-
 add_filter('woocommerce_add_to_cart_fragments', 'iconic_cart_count_fragments', 10, 1);
-function iconic_cart_count_fragments($fragments)
-{
-    ob_start();
-    include 'mini-cart.php';
-    $mini_cart = ob_get_clean();
-    $fragments['.cart-contents-count'] = $mini_cart;
-    return $fragments;
-}
-
 add_filter('woocommerce_product_loop_title_classes', 'my_woocommerce_product_loop_title_classes');
-add_filter('woocommerce_quantity_input_classes','my_woocommerce_quantity_input_classes');
+add_filter('woocommerce_quantity_input_classes', 'my_woocommerce_quantity_input_classes');
+add_action('woocommerce_before_shop_loop', 'my_woocommerce_before_shop_loop', 100);
+add_action('woocommerce_product_query', 'my_woocommerce_product_query', 10, 2);

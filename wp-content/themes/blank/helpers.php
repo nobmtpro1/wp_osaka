@@ -152,5 +152,78 @@ if (!function_exists('my_woocommerce_quantity_input_classes')) {
         return $classes;
     }
 } else {
-    die('generateRandomString');
+    die('my_woocommerce_quantity_input_classes');
+}
+
+if (!function_exists('get_all_term_parents')) {
+
+    function get_all_parents($term, $array)
+    {
+        if ($term->parent !== 0) {
+            $parent = get_term($term->parent);
+            $array[] = $parent;
+            return get_all_parents($parent, $array);
+        } else {
+            return array_reverse($array);
+        }
+    }
+} else {
+    die('get_all_term_parents');
+}
+
+if (!function_exists('iconic_cart_count_fragments')) {
+    function iconic_cart_count_fragments($fragments)
+    {
+        ob_start();
+        include 'mini-cart.php';
+        $mini_cart = ob_get_clean();
+        $fragments['.cart-contents-count'] = $mini_cart;
+        return $fragments;
+    }
+} else {
+    die('iconic_cart_count_fragments');
+}
+
+if (!function_exists('my_woocommerce_before_shop_loop')) {
+    function my_woocommerce_before_shop_loop()
+    {
+        include 'views/shop_filter.php';
+    }
+} else {
+    die('my_woocommerce_before_shop_loop');
+}
+
+// my_woocommerce_product_query
+if (!function_exists('my_woocommerce_product_query')) {
+    function my_woocommerce_product_query($q)
+    {
+        $price_range = $_GET["price_range"];
+
+        $meta_query = $q->get('meta_query');
+
+        if ($price_range) {
+            $price_range_arr = explode("-", $price_range);
+            $meta_query = array(
+                'relation' => 'and',
+                array(
+                    'key'     => '_price',
+                    'value'   => (int) @$price_range_arr[0],
+                    'compare' => '>=',
+                    'type' => 'UNSIGNED'
+                ),
+                array(
+                    'key'     => '_price',
+                    'value'   => (int) @$price_range_arr[1],
+                    'compare' => '<=',
+                    'type' => 'UNSIGNED'
+                ),
+            );
+        }
+
+        $q->set('meta_query', $meta_query);
+        $q->meta_query = $meta_query;
+        // dd( $q);
+    }
+} else {
+    die('my_woocommerce_product_query');
 }

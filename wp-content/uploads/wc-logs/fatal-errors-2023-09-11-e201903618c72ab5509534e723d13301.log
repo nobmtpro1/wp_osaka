@@ -1,0 +1,24 @@
+2023-09-11T04:15:34+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function my_woocommerce_product_query(), 1 passed in C:\xampp\htdocs\osaka\wp-includes\class-wp-hook.php on line 312 and exactly 2 expected in C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php:198
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-includes\class-wp-hook.php(312): my_woocommerce_product_query(Object(WP_Query))
+#1 C:\xampp\htdocs\osaka\wp-includes\class-wp-hook.php(334): WP_Hook->apply_filters('', Array)
+#2 C:\xampp\htdocs\osaka\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\class-wc-query.php(545): do_action('woocommerce_pro...', Object(WP_Query), Object(WC_Query))
+#4 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\class-wc-query.php(422): WC_Query->product_query(Object(WP_Query))
+#5 C:\xampp\htdocs\osaka\wp-includes\class-wp-hook.php(310): WC_Query->pre_get_posts(Object(WP_Query))
+#6 C:\xampp\htdocs\osaka\wp-includes\class-wp-hook.php(334): WP_Hook->apply_filt in C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php on line 198
+
+2023-09-11T04:32:36+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Query as array in C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php:201
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-includes\class-wp-hook.php(310): my_woocommerce_product_query(Object(WP_Query))
+#1 C:\xampp\htdocs\osaka\wp-includes\class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#2 C:\xampp\htdocs\osaka\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\osaka\wp-includes\class-wp-query.php(1881): do_action_ref_array('pre_get_posts', Array)
+#4 C:\xampp\htdocs\osaka\wp-includes\class-wp-query.php(3800): WP_Query->get_posts()
+#5 C:\xampp\htdocs\osaka\wp-includes\post.php(2441): WP_Query->query(Array)
+#6 C:\xampp\htdocs\osaka\wp-content\plugins\advanced-custom-fields-pro\includes\class-acf-internal-post-type.php(401): get_posts(Array)
+#7 C:\xampp\htdocs\osaka\wp-content\plugins\advanced-custom-fields-pro\includes\class-acf-internal-post-type.php(359): ACF_Internal_Post_Type->get_raw_posts()
+#8 C:\xampp\htdocs\osaka\wp-content\pl in C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php on line 201
+
+2023-09-11T04:36:36+00:00 CRITICAL syntax error, unexpected '}' in C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php on line 223
+
