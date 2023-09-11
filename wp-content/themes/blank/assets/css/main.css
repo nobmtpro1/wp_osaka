@@ -348,7 +348,7 @@ textarea:focus {
 
 .w-single-price {
   margin-bottom: 10px;
-  font-size: 20px !important;
+  font-size: 25px !important;
   color: #ff0000 !important;
   font-weight: bold !important;
 }
@@ -386,12 +386,6 @@ textarea:focus {
   color: #ff0000;
 }
 
-.w-single-add-to-cart-wrap {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 10px !important;
-}
-
 .w-single-add-to-cart {
   padding: 15px 30px !important;
   background: transparent !important;
@@ -402,7 +396,8 @@ textarea:focus {
   margin-bottom: 15px !important;
   display: inline-block !important;
   width: fit-content !important;
-  margin-top: 0px !important;
+  margin-right: 30px !important;
+  margin-top: 10px !important;
 }
 .w-single-add-to-cart:hover {
   background: #ff9900 !important;
@@ -436,9 +431,10 @@ textarea:focus {
 .w-variations-choose tbody tr td select {
   width: 150px !important;
   min-width: unset !important;
-  border: 1px #888 solid;
   padding: 5px;
   margin-right: 10px;
+  border: none !important;
+  border-bottom: 1px #e4e4e4 solid !important;
 }
 
 .w-single_variation_wrap .woocommerce-variation-description {
@@ -542,6 +538,78 @@ textarea:focus {
 .w-loop-ordering select {
   height: 30px !important;
   padding: 5px !important;
+}
+
+.w-tabs-panel h2:first-child {
+  margin-bottom: 10px !important;
+}
+
+.w-related-products > h2 {
+  margin-bottom: 20px !important;
+  border-bottom: 1px #e4e4e4 solid;
+  padding-bottom: 10px !important;
+}
+
+.woocommerce-message .button {
+  background: #ff9900 !important;
+  color: white !important;
+  border-radius: 0 !important;
+}
+
+.w-cart-remove-product {
+  width: 30px !important;
+}
+.w-cart-remove-product a {
+  margin-right: 0 !important;
+}
+
+.w-cart-product-thumbnail {
+  width: 100px !important;
+}
+.w-cart-product-thumbnail img {
+  width: 100px !important;
+}
+
+.w-cart-product-name > a {
+  font-weight: 500 !important;
+  font-size: 20px !important;
+}
+
+.w-cart-coupon {
+  width: 400px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center;
+  gap: 0 !important;
+}
+.w-cart-coupon input {
+  width: 150px !important;
+  height: 100% !important;
+}
+.w-cart-coupon button {
+  flex: 1;
+  height: 100% !important;
+  background: transparent !important;
+  color: #ff9900 !important;
+  border: 1px #ff9900 solid !important;
+  border-radius: 0 !important;
+}
+
+.w-cart-update-button {
+  background: #ff9900 !important;
+  color: white !important;
+  border-radius: 0 !important;
+  height: 40px !important;
+}
+
+.w-proceed-to-checkout .checkout-button {
+  background: #ff9900 !important;
+  border-radius: 0 !important;
+  border: 1px #ff9900 solid !important;
+}
+.w-proceed-to-checkout .checkout-button:hover {
+  background: transparent !important;
+  color: #ff9900 !important;
 }
 
 .page-home {

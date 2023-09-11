@@ -27,9 +27,9 @@ do_action('woocommerce_before_cart'); ?>
 		<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
 			<thead>
 				<tr>
-					<th class="product-remove"><span class="screen-reader-text"><?php esc_html_e('Remove item', 'woocommerce'); ?></span></th>
-					<th class="product-thumbnail"><span class="screen-reader-text"><?php esc_html_e('Thumbnail image', 'woocommerce'); ?></span></th>
-					<th class="product-name"><?php esc_html_e('Product', 'woocommerce'); ?></th>
+					<th class="w-cart-remove-product product-remove"><span class="screen-reader-text"><?php esc_html_e('Remove item', 'woocommerce'); ?></span></th>
+					<th class="w-cart-product-thumbnail product-thumbnail"><span class="screen-reader-text"><?php esc_html_e('Thumbnail image', 'woocommerce'); ?></span></th>
+					<th class="w-cart-product-name product-name"><?php esc_html_e('Product', 'woocommerce'); ?></th>
 					<th class="product-price"><?php esc_html_e('Price', 'woocommerce'); ?></th>
 					<th class="product-quantity"><?php esc_html_e('Quantity', 'woocommerce'); ?></th>
 					<th class="product-subtotal"><?php esc_html_e('Subtotal', 'woocommerce'); ?></th>
@@ -57,7 +57,7 @@ do_action('woocommerce_before_cart'); ?>
 				?>
 						<tr class="woocommerce-cart-form__cart-item <?php echo esc_attr(apply_filters('woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key)); ?>">
 
-							<td class="product-remove">
+							<td class="w-cart-remove-product product-remove">
 								<?php
 								echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 									'woocommerce_cart_item_remove_link',
@@ -74,7 +74,7 @@ do_action('woocommerce_before_cart'); ?>
 								?>
 							</td>
 
-							<td class="product-thumbnail">
+							<td class="w-cart-product-thumbnail product-thumbnail">
 								<?php
 								$thumbnail = apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key);
 
@@ -86,7 +86,7 @@ do_action('woocommerce_before_cart'); ?>
 								?>
 							</td>
 
-							<td class="product-name" data-title="<?php esc_attr_e('Product', 'woocommerce'); ?>">
+							<td class="w-cart-product-name product-name" data-title="<?php esc_attr_e('Product', 'woocommerce'); ?>">
 								<?php
 								if (!$product_permalink) {
 									echo wp_kses_post($product_name . '&nbsp;');
@@ -160,13 +160,13 @@ do_action('woocommerce_before_cart'); ?>
 					<td colspan="6" class="actions">
 
 						<?php if (wc_coupons_enabled()) { ?>
-							<div class="coupon">
+							<div class="w-cart-coupon coupon">
 								<label for="coupon_code" class="screen-reader-text"><?php esc_html_e('Coupon:', 'woocommerce'); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e('Coupon code', 'woocommerce'); ?>" /> <button type="submit" class="button<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="apply_coupon" value="<?php esc_attr_e('Apply coupon', 'woocommerce'); ?>"><?php esc_html_e('Apply coupon', 'woocommerce'); ?></button>
 								<?php do_action('woocommerce_cart_coupon'); ?>
 							</div>
 						<?php } ?>
 
-						<button type="submit" class="button<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="update_cart" value="<?php esc_attr_e('Update cart', 'woocommerce'); ?>"><?php esc_html_e('Update cart', 'woocommerce'); ?></button>
+						<button type="submit" class="w-cart-update-button button<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="update_cart" value="<?php esc_attr_e('Update cart', 'woocommerce'); ?>"><?php esc_html_e('Update cart', 'woocommerce'); ?></button>
 
 						<?php do_action('woocommerce_cart_actions'); ?>
 

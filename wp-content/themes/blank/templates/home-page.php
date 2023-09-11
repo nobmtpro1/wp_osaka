@@ -11,7 +11,7 @@ $fields = get_fields();
     <section class="banner g-container">
         <div class="swiper bannerSlider">
             <div class="swiper-wrapper">
-                <?php foreach (@$fields["banner"] as $banner) : ?>
+                <?php foreach (@$fields["banner"]?? [] as $banner) : ?>
                     <div class="swiper-slide" data-swiper-autoplay="2000">
                         <a href="<?= @$banner["link"] ?>"><img src="<?= @$banner["image"] ?>" alt=""></a>
                     </div>

@@ -1,4 +1,32 @@
 <?php
+if (!function_exists('my_custom_wc_theme_support')) {
+    function my_custom_wc_theme_support()
+    {
+        add_theme_support('custom-logo');
+        add_theme_support('woocommerce');
+        add_theme_support('wc-product-gallery-zoom');
+        add_theme_support('wc-product-gallery-lightbox');
+        add_theme_support('wc-product-gallery-slider');
+    }
+} else {
+    die('my_custom_wc_theme_support');
+}
+
+if (!function_exists('initTheme')) {
+    function initTheme()
+    {
+        add_filter('use_block_editor_for_post', '__return_false');
+        register_nav_menu('header-main', __('Menu chính'));
+        register_nav_menu('footer-menu', __('Menu footer'));
+        register_sidebar([
+            'name' => 'First sidebar',
+            'id' => 'first_sidebar',
+        ]);
+    }
+} else {
+    die('initTheme');
+}
+
 if (!function_exists('get_percent_sale')) {
     function get_percent_sale($product)
     {
@@ -226,4 +254,13 @@ if (!function_exists('my_woocommerce_product_query')) {
     }
 } else {
     die('my_woocommerce_product_query');
+}
+
+if (!function_exists('my_woocommerce_after_add_to_cart_button')) {
+    function my_woocommerce_after_add_to_cart_button()
+    {
+        include 'views/buy_now_button.php';
+    }
+} else {
+    die('my_woocommerce_after_add_to_cart_button');
 }

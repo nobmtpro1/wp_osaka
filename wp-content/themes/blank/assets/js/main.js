@@ -95,3 +95,12 @@ $(document).on("click", "#check-order", function (e) {
     });
   }
 });
+
+$(document).on("click", ".w-buynow", function () {
+  if ($(this).hasClass("disabled")) {
+  } else {
+    setTimeout(() => {
+      window.location.href = "http://localhost/osaka/cart";
+    }, 100);
+  }
+});

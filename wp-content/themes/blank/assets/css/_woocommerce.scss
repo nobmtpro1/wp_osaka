@@ -217,7 +217,7 @@
 
 .w-single-price {
   margin-bottom: 10px;
-  font-size: 20px !important;
+  font-size: 25px !important;
   color: #ff0000 !important;
   font-weight: bold !important;
 
@@ -264,9 +264,6 @@
 }
 
 .w-single-add-to-cart-wrap {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 10px !important;
 }
 
 .w-single-add-to-cart {
@@ -279,7 +276,8 @@
   margin-bottom: 15px !important;
   display: inline-block !important;
   width: fit-content !important;
-  margin-top: 0px !important;
+  margin-right: 30px !important;
+  margin-top: 10px !important;
   &:hover {
     background: $primary-color !important;
     color: white !important;
@@ -314,9 +312,10 @@
         select {
           width: 150px !important;
           min-width: unset !important;
-          border: 1px #888 solid;
           padding: 5px;
           margin-right: 10px;
+          border: none !important;
+          border-bottom: 1px #e4e4e4 solid !important;
         }
       }
     }
@@ -436,5 +435,88 @@
   select {
     height: 30px !important;
     padding: 5px !important;
+  }
+}
+
+.w-tabs-panel {
+  h2:first-child {
+    margin-bottom: 10px !important;
+  }
+}
+
+.w-related-products {
+  & > h2 {
+    margin-bottom: 20px !important;
+    border-bottom: 1px #e4e4e4 solid;
+    padding-bottom: 10px !important;
+  }
+}
+
+.woocommerce-message .button {
+  background: $primary-color !important;
+  color: white !important;
+  border-radius: 0 !important;
+}
+
+.w-cart-remove-product {
+  width: 30px !important;
+  a {
+    margin-right: 0 !important;
+  }
+}
+
+.w-cart-product-thumbnail {
+  width: 100px !important;
+  img {
+    width: 100px !important;
+  }
+}
+
+.w-cart-product-name {
+  & > a {
+    font-weight: 500 !important;
+    font-size: 20px !important;
+  }
+}
+
+.w-cart-coupon {
+  width: 400px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center;
+  gap: 0 !important;
+
+  input {
+    width: 150px !important;
+    height: 100% !important;
+  }
+
+  button {
+    flex: 1;
+    height: 100% !important;
+    background: transparent !important;
+    color: $primary-color !important;
+    border: 1px $primary-color solid !important;
+    border-radius: 0 !important;
+  }
+}
+
+.w-cart-update-button {
+  background: $primary-color !important;
+  color: white !important;
+  border-radius: 0 !important;
+  height: 40px !important;
+}
+
+.w-proceed-to-checkout {
+  .checkout-button {
+    background: $primary-color !important;
+    border-radius: 0 !important;
+    border: 1px $primary-color solid !important;
+
+    &:hover {
+      background: transparent !important;
+      color: $primary-color !important;
+    }
   }
 }
