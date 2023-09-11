@@ -30,3 +30,5 @@ add_filter('woocommerce_product_loop_title_classes', 'my_woocommerce_product_loo
 add_filter('woocommerce_quantity_input_classes', 'my_woocommerce_quantity_input_classes');
 add_action('woocommerce_before_shop_loop', 'my_woocommerce_before_shop_loop', 100);
 add_action('woocommerce_product_query', 'my_woocommerce_product_query', 10, 2);
+// add_action('woocommerce_before_cart', 'woocommerce_breadcrumb', 10);
+// woocommerce_breadcrumb

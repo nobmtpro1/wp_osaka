@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css" integrity="sha512-wJgJNTBBkLit7ymC6vvzM1EcSWeM9mmOu+1USHaRBbHkm6W9EgM0HY27+UtUaprntaYQJF75rc8gjxllKs5OIQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="<?= TEMPLATE_DIRECTORY ?>/assets/libs/swiper.css" rel="stylesheet" />
     <link href="<?= TEMPLATE_DIRECTORY ?>/assets/css/main.css?v=<?= time() ?>" rel="stylesheet" />
 </head>
@@ -46,7 +47,7 @@
                     <button>Tìm kiếm</button>
                 </form>
                 <div class="right">
-                    <a class="link" href="">
+                    <a class="link" href="" id="check-order">
                         <div class="image">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </div>
@@ -54,7 +55,8 @@
                             Kiểm tra <br> đơn hàng
                         </div>
                     </a>
-                    <a class="link" href="">
+                    <a class="link" href="<?php echo get_permalink(wc_get_page_id('myaccount')); ?>
+">
                         <div class="image">
                             <i class="fa-solid fa-circle-user"></i>
                         </div>

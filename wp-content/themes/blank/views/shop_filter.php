@@ -18,6 +18,7 @@
                 <?php endif ?>
             <?php endforeach ?>
             <select name="price_range" id="">
+                <option value="">Chọn mức giá</option>
                 <option <?= $_GET["price_range"] == "0-100000" ? "selected" : "" ?> value="0-100000">Dưới 100,000₫</option>
                 <option <?= $_GET["price_range"] == "100000-300000" ? "selected" : "" ?> value="100000-300000">100,000₫ - 300,000₫</option>
                 <option <?= $_GET["price_range"] == "300000-500000" ? "selected" : "" ?> value="300000-500000">300,000₫ - 500,000₫</option>

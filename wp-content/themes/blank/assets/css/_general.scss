@@ -83,3 +83,22 @@
     }
   }
 }
+
+.g-shop-filter-modal{
+  form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    select{
+      height: 30px;
+    }
+
+    button{
+      background: transparent;
+      &:hover {
+        background: black;
+      }
+    }
+  }
+}

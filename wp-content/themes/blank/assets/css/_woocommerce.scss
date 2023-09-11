@@ -219,6 +219,15 @@
   margin-bottom: 10px;
   font-size: 20px !important;
   color: #ff0000 !important;
+  font-weight: bold !important;
+
+  del {
+    margin-right: 10px !important;
+  }
+
+  ins {
+    text-decoration: none !important;
+  }
 }
 
 .w-single-short-description {
@@ -330,6 +339,7 @@
 }
 
 .w-product-summary {
+  padding-top: 20px !important;
   a {
     color: $primary-color;
   }
@@ -346,9 +356,9 @@
 
 /* Flexbox on WooCommerce archive products */
 .products.columns-4 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 40px;
   &::before,
   &::after {
     display: none !important;
@@ -358,8 +368,8 @@
     display: flex;
     flex-flow: column nowrap;
     margin-right: 0 !important;
-    width: 22%;
-    margin-bottom: 40px !important;
+    width: 100% !important;
+    margin-bottom: 0px !important;
   }
 
   li.product .button {

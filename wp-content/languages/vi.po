@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 6.2.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-10 01:15:33+0000\n"
+"PO-Revision-Date: 2023-07-15 15:30:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -285,6 +285,11 @@ msgstr ","
 msgid "Uncategorized"
 msgstr "Chưa phân loại"
 
+#: wp-includes/block-patterns.php:64 wp-includes/block-patterns.php:141
+msgctxt "Block pattern category"
+msgid "Posts"
+msgstr "Bài viết"
+
 #: wp-includes/blocks/post-author-name/block.json
 msgctxt "block title"
 msgid "Post Author Name"
@@ -381,6 +386,15 @@ msgstr "%sX-Small"
 #: wp-includes/block-template-utils.php:773
 msgid "Deleted author: %s"
 msgstr "Tác giả %s đã bị xóa"
+
+#. translators: Custom template title in the Site Editor referencing a post
+#. that was not found. 1: Post type singular name, 2: Post type slug.
+#. translators: Custom template title in the Site Editor, referencing a
+#. taxonomy term that was not found. 1: Taxonomy singular name, 2: Term slug.
+#: wp-includes/block-template-utils.php:569
+#: wp-includes/block-template-utils.php:646
+msgid "Not found: %1$s (%2$s)"
+msgstr "Không tìm thấy: %1$s (%2$s)"
 
 #: wp-includes/theme.php:3848
 msgid "Whether a theme uses block-based templates."
@@ -553,6 +567,11 @@ msgstr "Ảnh đại diện"
 msgctxt "block description"
 msgid "Displays the name of the author of the comment."
 msgstr "Hiển thị tên người bình luận."
+
+#: wp-includes/blocks/avatar/block.json
+msgctxt "block description"
+msgid "Add a user’s avatar."
+msgstr "Thêm ảnh đại diện người dùng."
 
 #: wp-includes/js/dist/block-library.js:8493 wp-admin/includes/upgrade.php:256
 msgid "A WordPress Commenter"
@@ -1802,7 +1821,7 @@ msgstr "Nhúng file PDF"
 #: wp-includes/js/dist/block-library.js:16405
 #: wp-includes/js/dist/block-library.js:16501
 msgid "Embed of %s."
-msgstr "Nhúng file %s"
+msgstr "Nhúng file %s."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1468
 msgid "The date the comment was published, as GMT."
@@ -9702,7 +9721,7 @@ msgstr "Changeset mới"
 msgid "View Pages"
 msgstr "Xem trang"
 
-#: wp-includes/post.php:171 wp-includes/post.php:172 wp-admin/about.php:201
+#: wp-includes/post.php:171 wp-includes/post.php:172 wp-admin/about.php:227
 msgid "Custom CSS"
 msgstr "CSS tùy chỉnh"
 
@@ -11815,13 +11834,6 @@ msgstr "Tuỳ biến"
 msgid "Taxonomy names must be between 1 and 32 characters in length."
 msgstr "Độ dài của tên taxonomy phải ở trong khoảng từ 1 đến 32 ký tự."
 
-#. translators: Revision date format, see
-#. https://www.php.net/manual/datetime.format.php
-#: wp-includes/post-template.php:1882 wp-includes/post-template.php:1925
-msgctxt "revision date format"
-msgid "F j, Y @ H:i:s"
-msgstr "Ngày j F, Y @ H:i:s"
-
 #: wp-includes/post.php:1688 wp-includes/post.php:1689
 msgid "Post type names must be between 1 and 20 characters in length."
 msgstr "Độ dài của tên post type phải ở trong khoảng từ 1 đến 20."
@@ -11906,6 +11918,13 @@ msgstr ""
 "Cảm ơn!\n"
 "\n"
 "--The Team @ SITE_NAME"
+
+#. translators: Revision date format, see
+#. https://www.php.net/manual/datetime.format.php
+#: wp-includes/post-template.php:1882 wp-includes/post-template.php:1925
+msgctxt "revision date format"
+msgid "F j, Y @ H:i:s"
+msgstr "F j, Y @ H:i:s"
 
 #: wp-includes/blocks/archives.php:60
 #: wp-includes/widgets/class-wp-widget-archives.php:100

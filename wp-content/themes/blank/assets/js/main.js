@@ -77,6 +77,21 @@ $(document).on("click", ".component-modal .content > .close", function () {
   $(this).parents(".component-modal").removeClass("active");
 });
 
-$(document).on("click",".g-shop-filter > button",function () {
-  $(".g-shop-filter-modal").toggleClass("active")
-})
+$(document).on("click", ".g-shop-filter > button", function () {
+  $(".g-shop-filter-modal").toggleClass("active");
+});
+
+$(document).on("click", "#check-order", function (e) {
+  e?.preventDefault();
+  const lastOrderUrl = localStorage.getItem("last_order_url");
+  if (lastOrderUrl) {
+    window.location.href = lastOrderUrl;
+  } else {
+    $.toast({
+      text: "Bạn chưa có đơn đặt hàng nào gần đây",
+      showHideTransition: "plain",
+      icon: "error",
+      position: "top-right",
+    });
+  }
+});

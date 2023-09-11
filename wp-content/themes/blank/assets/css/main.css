@@ -133,6 +133,21 @@ textarea:focus {
   background: black;
 }
 
+.g-shop-filter-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.g-shop-filter-modal form select {
+  height: 30px;
+}
+.g-shop-filter-modal form button {
+  background: transparent;
+}
+.g-shop-filter-modal form button:hover {
+  background: black;
+}
+
 .w-loop-product {
   animation: scale0to1 500ms;
   transition: all 300ms ease-in-out;
@@ -335,6 +350,13 @@ textarea:focus {
   margin-bottom: 10px;
   font-size: 20px !important;
   color: #ff0000 !important;
+  font-weight: bold !important;
+}
+.w-single-price del {
+  margin-right: 10px !important;
+}
+.w-single-price ins {
+  text-decoration: none !important;
 }
 
 .w-single-short-description {
@@ -431,6 +453,9 @@ textarea:focus {
   color: #ff0000 !important;
 }
 
+.w-product-summary {
+  padding-top: 20px !important;
+}
 .w-product-summary a {
   color: #ff9900;
 }
@@ -446,9 +471,9 @@ textarea:focus {
 
 /* Flexbox on WooCommerce archive products */
 .products.columns-4 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 40px;
 }
 .products.columns-4::before, .products.columns-4::after {
   display: none !important;
@@ -457,8 +482,8 @@ textarea:focus {
   display: flex;
   flex-flow: column nowrap;
   margin-right: 0 !important;
-  width: 22%;
-  margin-bottom: 40px !important;
+  width: 100% !important;
+  margin-bottom: 0px !important;
 }
 .products.columns-4 li.product .button {
   margin-top: auto;
@@ -955,6 +980,11 @@ textarea:focus {
 .page-shop section.banner a img {
   width: 100%;
   height: auto;
+}
+
+.page-single-product {
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .component-header .top {
