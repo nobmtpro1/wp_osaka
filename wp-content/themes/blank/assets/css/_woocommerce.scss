@@ -215,12 +215,18 @@
   margin-bottom: 10px;
 }
 
+.w-single-quantity {
+  float: unset !important;
+  margin-bottom: 10px !important;
+}
+
 .w-quantity-input {
   border: 1px solid #ccc;
   padding: 5px;
-  width: 60px !important;
-  height: 30px !important;
-  margin: 10px;
+  width: 70px !important;
+  height: 40px !important;
+  font-size: 17px !important;
+  // margin: 10px;
 }
 
 .w-grouped-add-to-cart {
@@ -229,6 +235,7 @@
       display: flex;
       gap: 10px;
       align-items: center;
+      margin-bottom: 10px;
 
       .woocommerce-grouped-product-list-item__price {
         color: #ff0000;
@@ -237,13 +244,23 @@
   }
 }
 
+.w-single-add-to-cart-wrap {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
 .w-single-add-to-cart {
+  padding: 15px 30px !important;
   background: transparent !important;
-  border-radius: 3px !important;
+  border-radius: 0px !important;
   border: 1px $primary-color solid !important;
   color: $primary-color !important;
   transition: all 300ms ease-in-out;
   margin-bottom: 15px !important;
+  display: inline-block !important;
+  width: fit-content !important;
+  margin-top: 0px !important;
   &:hover {
     background: $primary-color !important;
     color: white !important;
@@ -251,11 +268,33 @@
 }
 
 .w-variations-choose {
+  width: auto !important;
+  margin-bottom: 10px !important;
   tbody {
     tr {
+      th {
+        text-align: left !important;
+        display: flex !important;
+        align-items: center !important;
+        padding-right: 20px !important;
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+        height: 40px !important;
+        label {
+          width: 100% !important;
+          height: 100% !important;
+          display: flex !important;
+          align-items: center !important;
+        }
+      }
       td {
-        padding: 10px;
+        text-align: left !important;
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+        // padding: 10px;
         select {
+          width: 150px !important;
+          min-width: unset !important;
           border: 1px #888 solid;
           padding: 5px;
           margin-right: 10px;
@@ -277,7 +316,11 @@
 }
 
 .w-product-summary {
-  a{
+  a {
     color: $primary-color;
   }
+}
+
+.w-variations_form {
+  margin-bottom: 20px !important;
 }
