@@ -264,3 +264,17 @@ if (!function_exists('my_woocommerce_after_add_to_cart_button')) {
 } else {
     die('my_woocommerce_after_add_to_cart_button');
 }
+
+if (!function_exists('my_woocommerce_currency_symbol')) {
+    function my_woocommerce_currency_symbol($currency_symbol, $currency)
+    {
+        switch ($currency) {
+            case 'VND':
+                $currency_symbol = 'đ';
+                break;
+        }
+        return $currency_symbol;
+    }
+} else {
+    die('my_woocommerce_currency_symbol');
+}

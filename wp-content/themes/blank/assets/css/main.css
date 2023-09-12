@@ -559,8 +559,32 @@ textarea:focus {
 .w-cart-remove-product {
   width: 30px !important;
 }
+@media only screen and (max-width: 1025px) {
+  .w-cart-remove-product {
+    width: 100% !important;
+    height: 120px !important;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    font-size: 20px !important;
+  }
+}
 .w-cart-remove-product a {
   margin-right: 0 !important;
+}
+.w-cart-remove-product img {
+  display: none !important;
+}
+@media only screen and (max-width: 1025px) {
+  .w-cart-remove-product img {
+    display: block !important;
+    width: 100px !important;
+    height: 100px !important;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+  }
 }
 
 .w-cart-product-thumbnail {
@@ -576,15 +600,25 @@ textarea:focus {
 }
 
 .w-cart-coupon {
-  width: 400px !important;
+  width: 300px !important;
   height: 40px !important;
   display: flex !important;
   align-items: center;
   gap: 0 !important;
 }
+@media only screen and (max-width: 1025px) {
+  .w-cart-coupon {
+    width: 100% !important;
+  }
+}
 .w-cart-coupon input {
   width: 150px !important;
   height: 100% !important;
+}
+@media only screen and (max-width: 1025px) {
+  .w-cart-coupon input {
+    width: 50% !important;
+  }
 }
 .w-cart-coupon button {
   flex: 1;
@@ -610,6 +644,48 @@ textarea:focus {
 .w-proceed-to-checkout .checkout-button:hover {
   background: transparent !important;
   color: #ff9900 !important;
+}
+
+.w-cart-table {
+  border: none !important;
+}
+@media only screen and (max-width: 1025px) {
+  .w-cart-table tr {
+    width: 100% !important;
+    margin-right: 0 !important;
+    overflow: hidden !important;
+  }
+  .w-cart-table tr:nth-child(even) {
+    background: rgba(234, 234, 234, 0.2039215686) !important;
+  }
+  .w-cart-table tr:nth-child(odd) {
+    background: rgba(234, 234, 234, 0.8156862745) !important;
+  }
+}
+
+.w-cart-price {
+  font-size: 20px !important;
+  line-height: normal !important;
+}
+
+.w-cart-subtotal {
+  font-size: 20px !important;
+  line-height: normal !important;
+}
+
+.w-cart-quantity .w-single-quantity {
+  margin-bottom: 0 !important;
+}
+
+.w-cart-totals > h2 {
+  margin-bottom: 10px !important;
+}
+.w-cart-totals .w-cart-totals-table {
+  border: none !important;
+}
+.w-cart-totals .w-cart-totals-table th,
+.w-cart-totals .w-cart-totals-table td {
+  padding-left: 3px !important;
 }
 
 .page-home {

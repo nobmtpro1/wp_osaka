@@ -459,9 +459,30 @@
 }
 
 .w-cart-remove-product {
+  @include mobile {
+    width: 100% !important;
+    height: 120px !important;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    font-size: 20px !important;
+  }
   width: 30px !important;
   a {
     margin-right: 0 !important;
+  }
+
+  img {
+    @include mobile{
+      display: block !important;
+      width: 100px !important;
+      height: 100px !important;
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+    }
+    display: none !important;
   }
 }
 
@@ -480,13 +501,19 @@
 }
 
 .w-cart-coupon {
-  width: 400px !important;
+  @include mobile {
+    width: 100% !important;
+  }
+  width: 300px !important;
   height: 40px !important;
   display: flex !important;
   align-items: center;
   gap: 0 !important;
 
   input {
+    @include mobile {
+      width: 50% !important;
+    }
     width: 150px !important;
     height: 100% !important;
   }
@@ -517,6 +544,55 @@
     &:hover {
       background: transparent !important;
       color: $primary-color !important;
+    }
+  }
+}
+
+.w-cart-table {
+  @include mobile {
+    tr {
+      width: 100% !important;
+      margin-right: 0 !important;
+      overflow: hidden !important;
+
+      &:nth-child(even){
+        background: #eaeaea34 !important;
+      }
+
+      &:nth-child(odd){
+        background: #eaeaead0 !important;
+      }
+    }
+  }
+  border: none !important;
+}
+
+.w-cart-price {
+  font-size: 20px !important;
+  line-height: normal !important;
+}
+
+.w-cart-subtotal {
+  font-size: 20px !important;
+  line-height: normal !important;
+}
+
+.w-cart-quantity {
+  .w-single-quantity {
+    margin-bottom: 0 !important;
+  }
+}
+
+.w-cart-totals {
+  & > h2 {
+    margin-bottom: 10px !important;
+  }
+
+  .w-cart-totals-table {
+    border: none !important;
+    th,
+    td {
+      padding-left: 3px !important;
     }
   }
 }

@@ -20,11 +20,11 @@ defined('ABSPATH') || exit;
 
 do_action('woocommerce_before_cart'); ?>
 
-<div class="page-cart g-container">
+<div class="page-cart">
 	<form class="woocommerce-cart-form" action="<?php echo esc_url(wc_get_cart_url()); ?>" method="post">
 		<?php do_action('woocommerce_before_cart_table'); ?>
 
-		<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
+		<table class="w-cart-table shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
 			<thead>
 				<tr>
 					<th class="w-cart-remove-product product-remove"><span class="screen-reader-text"><?php esc_html_e('Remove item', 'woocommerce'); ?></span></th>
@@ -71,6 +71,8 @@ do_action('woocommerce_before_cart'); ?>
 									),
 									$cart_item_key
 								);
+								$thumbnail = apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key);
+								echo $thumbnail;
 								?>
 							</td>
 
@@ -111,13 +113,13 @@ do_action('woocommerce_before_cart'); ?>
 								?>
 							</td>
 
-							<td class="product-price" data-title="<?php esc_attr_e('Price', 'woocommerce'); ?>">
+							<td class="w-cart-price product-price" data-title="<?php esc_attr_e('Price', 'woocommerce'); ?>">
 								<?php
 								echo apply_filters('woocommerce_cart_item_price', WC()->cart->get_product_price($_product), $cart_item, $cart_item_key); // PHPCS: XSS ok.
 								?>
 							</td>
 
-							<td class="product-quantity" data-title="<?php esc_attr_e('Quantity', 'woocommerce'); ?>">
+							<td class="w-cart-quantity product-quantity" data-title="<?php esc_attr_e('Quantity', 'woocommerce'); ?>">
 								<?php
 								if ($_product->is_sold_individually()) {
 									$min_quantity = 1;
@@ -143,7 +145,7 @@ do_action('woocommerce_before_cart'); ?>
 								?>
 							</td>
 
-							<td class="product-subtotal" data-title="<?php esc_attr_e('Subtotal', 'woocommerce'); ?>">
+							<td class="w-cart-subtotal product-subtotal" data-title="<?php esc_attr_e('Subtotal', 'woocommerce'); ?>">
 								<?php
 								echo apply_filters('woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal($_product, $cart_item['quantity']), $cart_item, $cart_item_key); // PHPCS: XSS ok.
 								?>
@@ -161,7 +163,7 @@ do_action('woocommerce_before_cart'); ?>
 
 						<?php if (wc_coupons_enabled()) { ?>
 							<div class="w-cart-coupon coupon">
-								<label for="coupon_code" class="screen-reader-text"><?php esc_html_e('Coupon:', 'woocommerce'); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e('Coupon code', 'woocommerce'); ?>" /> <button type="submit" class="button<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="apply_coupon" value="<?php esc_attr_e('Apply coupon', 'woocommerce'); ?>"><?php esc_html_e('Apply coupon', 'woocommerce'); ?></button>
+								<label for="coupon_code" class="screen-reader-text"><?php esc_html_e('Coupon:', 'woocommerce'); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e('Coupon code', 'woocommerce'); ?>" /> <button type="submit" class="button<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="apply_coupon" value="<?php esc_attr_e('Apply coupon', 'woocommerce'); ?>">Áp dụng</button>
 								<?php do_action('woocommerce_cart_coupon'); ?>
 							</div>
 						<?php } ?>
