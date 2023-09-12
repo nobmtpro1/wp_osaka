@@ -84,17 +84,17 @@
   }
 }
 
-.g-shop-filter-modal{
-  form{
+.g-shop-filter-modal {
+  form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 
-    select{
+    select {
       height: 30px;
     }
 
-    button{
+    button {
       background: transparent;
       &:hover {
         background: black;
