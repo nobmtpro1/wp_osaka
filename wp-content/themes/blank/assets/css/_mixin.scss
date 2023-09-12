@@ -40,3 +40,14 @@
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+@mixin button-primary {
+  background: $primary-color !important;
+  border-radius: 0 !important;
+  color: white !important;
+  border: 1px $primary-color solid !important;
+  transition: all 200ms ease;
+  &:hover {
+    color: $primary-color !important;
+    background: transparent !important;
+  }
+}

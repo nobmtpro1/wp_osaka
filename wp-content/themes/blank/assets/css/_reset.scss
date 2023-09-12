@@ -39,3 +39,8 @@ select:focus,
 textarea:focus {
   outline: none;
 }
+
+select{
+  @include input;
+  min-height: 40px !important;
+}
