@@ -18,15 +18,14 @@
 </head>
 
 <body <?php body_class() ?>>
-
     <header class="component-header">
         <div class="top">
             <div class="g-container">
                 <ul>
-                    <li> <i class="fa-solid fa-location-dot"></i> 33 Trần Quý Khoách, P.Tân Định, Q.1, Tp.HCM
+                    <li> <i class="fa-solid fa-location-dot"></i> <?= get_field('address', 'option') ?>
                     </li>
-                    <li><i class="fa-solid fa-envelope"></i>contact@osaka.com.vn</li>
-                    <li><i class="fa-solid fa-phone"></i>0949 411 317</li>
+                    <li><i class="fa-solid fa-envelope"></i><?= get_field('email', 'option') ?></li>
+                    <li><i class="fa-solid fa-phone"></i><?= get_field('phone', 'option') ?></li>
                 </ul>
             </div>
         </div>
