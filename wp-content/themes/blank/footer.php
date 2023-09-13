@@ -155,6 +155,8 @@
     </section>
 </footer>
 
+<?php include 'views/button-contact-vr.php' ?>
+
 <?php wp_footer() ?>
 
 <script src="<?= TEMPLATE_DIRECTORY ?>/assets/libs/jquery.js"></script>
