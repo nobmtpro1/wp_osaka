@@ -56,33 +56,33 @@ class NewsletterTable extends \WP_List_Table
         return $item[$column_name];
     }
 
-    public function column_name($item)
-    {
-        $id = $item['id'];
-        $actions = array(
-            'edit' => "<a href='?page=aim_newsletter&my_action=add_or_edit&id={$id}'>Edit</a>",
-            'delete' => '<a href="javascript:" data-id="' . $id . '" class="delete-newsletter">Delete</a>',
-        );
+    // public function column_email($item)
+    // {
+    //     $id = $item['id'];
+    //     $actions = array(
+    //         'edit' => "<a href='?page=aim_newsletter&my_action=add_or_edit&id={$id}'>Edit</a>",
+    //         'delete' => '<a href="javascript:" data-id="' . $id . '" class="delete-newsletter">Delete</a>',
+    //     );
 
-        return sprintf(
-            '%s %s',
-            $item['name'],
-            $this->row_actions($actions)
-        );
-    }
+    //     return sprintf(
+    //         '%s %s',
+    //         $item['email'],
+    //         $this->row_actions($actions)
+    //     );
+    // }
 
-    public function column_cb($item)
-    {
-        return sprintf(
-            '<input type="checkbox" name="id[]" value="%s" />',
-            $item['id']
-        );
-    }
+    // public function column_cb($item)
+    // {
+    //     return sprintf(
+    //         '<input type="checkbox" name="id[]" value="%s" />',
+    //         $item['id']
+    //     );
+    // }
 
     public function get_columns()
     {
         $columns = array(
-            'cb' => '<input type="checkbox" />',
+            // 'cb' => '<input type="checkbox" />',
             'email' => __('E-Mail', 'wpbc'),
             'created_at' => __('Created at', 'wpbc'),
         );
@@ -106,23 +106,23 @@ class NewsletterTable extends \WP_List_Table
         return $actions;
     }
 
-    public function process_bulk_action()
-    {
-        if ('delete' === $this->current_action()) {
-            $ids = isset($_REQUEST['id']) ? $_REQUEST['id'] : array();
-            if (is_array($ids)) {
-                $ids = implode(',', $ids);
-            }
+    // public function process_bulk_action()
+    // {
+    //     if ('delete' === $this->current_action()) {
+    //         $ids = isset($_REQUEST['id']) ? $_REQUEST['id'] : array();
+    //         if (is_array($ids)) {
+    //             $ids = implode(',', $ids);
+    //         }
 
-            if (!empty($ids)) {
-                try {
-                    global $wpdb;
-                    $wpdb->query($wpdb->prepare("delete from %i where id in ($ids)", [NEWSLETTER_TABLE]));
-                } catch (\Exception $e) {
-                }
-            }
-        }
-    }
+    //         if (!empty($ids)) {
+    //             try {
+    //                 global $wpdb;
+    //                 $wpdb->query($wpdb->prepare("delete from %i where id in ($ids)", [NEWSLETTER_TABLE]));
+    //             } catch (\Exception $e) {
+    //             }
+    //         }
+    //     }
+    // }
 
     public function prepare_items()
     {
@@ -148,10 +148,6 @@ class NewsletterTable extends \WP_List_Table
         $data = $wpdb->get_results($query, ARRAY_A);
 
         // dd($data);   
-
-        foreach ($data as $key => $value) {
-            $data[$key]['sync'] = '<a data-id="' . $value['id'] . '" class="button sync-newsletter">Sync</a>';
-        }
         $this->items = $data;
 
         $this->set_pagination_args(

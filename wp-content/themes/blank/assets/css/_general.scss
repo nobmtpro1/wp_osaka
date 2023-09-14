@@ -102,3 +102,30 @@
     }
   }
 }
+
+.g-paginate {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  a,
+  span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: 1px $primary-color solid;
+    color: $primary-color;
+    font-size: 15px;
+    min-width: 40px;
+    min-height: 40px;
+
+    &.current,
+    &:hover {
+      color: white;
+      background: $primary-color;
+    }
+  }
+}

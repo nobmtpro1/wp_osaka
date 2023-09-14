@@ -203,7 +203,7 @@ if (!function_exists('iconic_cart_count_fragments')) {
     function iconic_cart_count_fragments($fragments)
     {
         ob_start();
-        include 'mini-cart.php';
+        include 'views/mini-cart.php';
         $mini_cart = ob_get_clean();
         $fragments['.cart-contents-count'] = $mini_cart;
         return $fragments;

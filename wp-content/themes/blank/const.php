@@ -7,3 +7,5 @@ define("BASE_URL", get_bloginfo('url'));
 
 // template name
 define("TEMPLATE_HOME_PAGE", "home-page.php");
+
+define("URL_BLOGS", BASE_URL . "/blogs");

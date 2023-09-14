@@ -66,7 +66,7 @@
                         </div>
                     </a>
                     <a class="cart" href="<?= BASE_URL ?>/cart">
-                        <?php include 'mini-cart.php' ?>
+                        <?php include 'views/mini-cart.php' ?>
                     </a>
                 </div>
 

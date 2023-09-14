@@ -11,9 +11,9 @@ $fields = get_fields();
     <section class="banner g-container">
         <div class="swiper bannerSlider">
             <div class="swiper-wrapper">
-                <?php foreach (@$fields["banner"]?? [] as $banner) : ?>
+                <?php foreach (@$fields["banner"] ?? [] as $banner) : ?>
                     <div class="swiper-slide" data-swiper-autoplay="2000">
-                        <a href="<?= @$banner["link"] ?>"><img src="<?= @$banner["image"] ?>" alt=""></a>
+                        <a href="<?= @$banner["link"] ?>"><img src="<?= @$banner["image"]['url'] ?>" alt=""></a>
                     </div>
                 <?php endforeach ?>
             </div>
@@ -23,74 +23,34 @@ $fields = get_fields();
     <section class="grid-images">
         <div class="g-container">
             <div class="grid-1">
-                <a class="grid-item" href="">
-                    <div class="image">
-                        <img src="<?= TEMPLATE_DIRECTORY ?>/assets/images/icon1.webp" alt="icon1" />
-                    </div>
-                    <div class="text">
-                        <div class="title">
-                            THANH TOÁN KHI NHẬN HÀNG
+                <?php foreach (@$fields['row_1'] ?? [] as $item) : ?>
+                    <a class="grid-item" href="<?= @$item['link']["url"] ?>" target="<?= @$item['link']["target"] ?>">
+                        <div class="image">
+                            <img src="<?= @$item['image']['url'] ?>" alt="icon1" />
                         </div>
-                        <div class="description">Bạn có thể thanh toán khi nhận hàng, không thích có thể trả lại.
+                        <div class="text">
+                            <div class="title">
+                                <?= @$item['title'] ?>
+                            </div>
+                            <div class="description"><?= @$item['content'] ?>
+                            </div>
                         </div>
-                    </div>
-                </a>
-                <a class="grid-item" href="">
-                    <div class="image">
-                        <img src="<?= TEMPLATE_DIRECTORY ?>/assets/images/icon2.webp" alt="icon1" />
-                    </div>
-                    <div class="text">
-                        <div class="title">
-                            THẮC MẮC KHÁCH HÀNG
-                        </div>
-                        <div class="description">Mọi thắc mắc của bạn hãy gửi ngay cho chúng tôi theo địa chỉ bên dưới nhé.
-                        </div>
-                    </div>
-                </a>
-                <a class="grid-item" href="">
-                    <div class="image">
-                        <img src="<?= TEMPLATE_DIRECTORY ?>/assets/images/icon3.webp" alt="icon1" />
-                    </div>
-                    <div class="text">
-                        <div class="title">
-                            Giờ mở cửa
-                        </div>
-                        <div class="description">Từ 07:00 đến 21:00 từ thứ 2 - 7
-                            Chủ nhật từ 07:00 đến 19:00
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                <?php endforeach ?>
             </div>
             <div class="grid-2">
-                <a href="" class="grid-item">
-                    <img src="<?= TEMPLATE_DIRECTORY ?>/assets/images/image1.webp" alt="image">
-                </a>
-                <a href="" class="grid-item">
-                    <img src="<?= TEMPLATE_DIRECTORY ?>/assets/images/image1.webp" alt="image">
-                </a>
-                <a href="" class="grid-item">
-                    <img src="<?= TEMPLATE_DIRECTORY ?>/assets/images/image1.webp" alt="image">
-                </a>
+                <?php foreach (@$fields['row_2'] ?? [] as $item) : ?>
+                    <a href="<?= @$item['link']["url"] ?>" target="<?= @$item['link']["target"] ?>" class="grid-item">
+                        <img src="<?= @$item['image']['url'] ?>" alt="image">
+                    </a>
+                <?php endforeach ?>
             </div>
             <div class="grid-3">
-                <a href="" class="grid-item">
-                    <img src="<?= TEMPLATE_DIRECTORY ?>/assets/images/image2.webp" alt="image">
-                </a>
-                <a href="" class="grid-item">
-                    <img src="<?= TEMPLATE_DIRECTORY ?>/assets/images/image2.webp" alt="image">
-                </a>
-                <a href="" class="grid-item">
-                    <img src="<?= TEMPLATE_DIRECTORY ?>/assets/images/image2.webp" alt="image">
-                </a>
-                <a href="" class="grid-item">
-                    <img src="<?= TEMPLATE_DIRECTORY ?>/assets/images/image2.webp" alt="image">
-                </a>
-                <a href="" class="grid-item">
-                    <img src="<?= TEMPLATE_DIRECTORY ?>/assets/images/image2.webp" alt="image">
-                </a>
-                <a href="" class="grid-item">
-                    <img src="<?= TEMPLATE_DIRECTORY ?>/assets/images/image2.webp" alt="image">
-                </a>
+                <?php foreach (@$fields['row_3'] ?? [] as $item) : ?>
+                    <a href="<?= @$item['link']["url"] ?>" target="<?= @$item['link']["target"] ?>" class="grid-item">
+                        <img src="<?= @$item['image']['url'] ?>" alt="image">
+                    </a>
+                <?php endforeach ?>
             </div>
         </div>
     </section>
@@ -116,8 +76,8 @@ $fields = get_fields();
     </section>
 
     <section class="banner-image">
-        <a href="">
-            <img src="<?= TEMPLATE_DIRECTORY ?>/assets/images/image3.webp" alt="banner">
+        <a href="<?= @$fields['link']["url"] ?>" target="<?= @$fields['link']["target"] ?>">
+            <img src="<?= @$fields['image']["url"] ?>" alt="banner">
         </a>
     </section>
 
@@ -229,6 +189,10 @@ $fields = get_fields();
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-pagination"></div>
             </div>
+
+        </div>
+        <div class="button">
+            <a href="<?= URL_BLOGS ?>" class="g-button">XEM TẤT CẢ</a>
         </div>
     </section>
 </div>

@@ -107,12 +107,13 @@ $(document).on("click", ".w-buynow", function () {
 
 $(document).on("submit", "#newletters-form", function (e) {
   e.preventDefault();
+  $(this).find("button").attr("disabled", true);
   wp.ajax
     .post("submit_newsletter", {
       email: $(this).find("input").val(),
     })
     .done(function (response) {
-      console.log(response);
+      $(this).find("button").attr("disabled", false);
       $.toast({
         text: response?.message,
         showHideTransition: "plain",
@@ -121,6 +122,7 @@ $(document).on("submit", "#newletters-form", function (e) {
       });
     })
     .fail(function (error) {
+      $(this).find("button").attr("disabled", false);
       $.toast({
         text: error?.message,
         showHideTransition: "plain",

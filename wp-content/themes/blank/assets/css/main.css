@@ -163,6 +163,32 @@ select {
   background: black;
 }
 
+.g-paginate {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.g-paginate a,
+.g-paginate span {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: 1px #ff9900 solid;
+  color: #ff9900;
+  font-size: 15px;
+  min-width: 40px;
+  min-height: 40px;
+}
+.g-paginate a.current, .g-paginate a:hover,
+.g-paginate span.current,
+.g-paginate span:hover {
+  color: white;
+  background: #ff9900;
+}
+
 .w-loop-product {
   animation: scale0to1 500ms;
   transition: all 300ms ease-in-out;
@@ -1578,6 +1604,11 @@ select {
   gap: 10px;
   align-items: center;
   text-align: center;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding-bottom: 20px;
+  margin: 5px;
 }
 .page-home section.blogs .blogs-slider .swiper-slide .blog .image {
   width: 100%;
@@ -1617,6 +1648,11 @@ select {
   font-size: 15px;
   margin-bottom: 20px;
 }
+.page-home section.blogs .button {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
 
 .page-shop {
   padding-bottom: 50px;
@@ -1634,6 +1670,73 @@ select {
 .page-single-product {
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+.page-blogs .wrap {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.page-blogs .wrap .blogs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+  grid-auto-rows: 1fr;
+  margin-bottom: 50px;
+}
+@media only screen and (max-width: 1025px) {
+  .page-blogs .wrap .blogs {
+    grid-template-columns: 1fr;
+  }
+}
+.page-blogs .wrap .blogs .blog {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.page-blogs .wrap .blogs .blog .image {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  margin-bottom: 30px;
+}
+.page-blogs .wrap .blogs .blog .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.page-blogs .wrap .blogs .blog .image .date {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background: #ff9900;
+  color: white;
+}
+.page-blogs .wrap .blogs .blog .image .date .day {
+  font-size: 20px;
+  font-weight: 500;
+}
+.page-blogs .wrap .blogs .blog .image .date .year {
+  font-size: 15px;
+}
+.page-blogs .wrap .blogs .blog .title {
+  font-size: 20px;
+  font-weight: 500;
+}
+.page-blogs .wrap .blogs .blog .description {
+  font-size: 15px;
+  margin-bottom: 20px;
 }
 
 .component-header .top {
