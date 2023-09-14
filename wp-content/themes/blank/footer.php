@@ -129,8 +129,8 @@
                     <div class="title">
                         HÃY ĐỂ LẠI MAIL NHẬN NHIỀU ƯU ĐÃI HƠN
                     </div>
-                    <form action="" class="form">
-                        <input type="text" placeholder="Đăng ký email">
+                    <form action="" class="form" id="newletters-form">
+                        <input type="email" required placeholder="Đăng ký email">
                         <button>Đăng ký</button>
                     </form>
                     <div class="help-text">* Hãy để lại email để nhận được những khuyến mãi mới nhất</div>

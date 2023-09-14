@@ -104,3 +104,28 @@ $(document).on("click", ".w-buynow", function () {
     }, 100);
   }
 });
+
+$(document).on("submit", "#newletters-form", function (e) {
+  e.preventDefault();
+  wp.ajax
+    .post("submit_newsletter", {
+      email: $(this).find("input").val(),
+    })
+    .done(function (response) {
+      console.log(response);
+      $.toast({
+        text: response?.message,
+        showHideTransition: "plain",
+        icon: "success",
+        position: "top-right",
+      });
+    })
+    .fail(function (error) {
+      $.toast({
+        text: error?.message,
+        showHideTransition: "plain",
+        icon: "error",
+        position: "top-right",
+      });
+    });
+});

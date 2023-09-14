@@ -278,3 +278,28 @@ if (!function_exists('my_woocommerce_currency_symbol')) {
 } else {
     die('my_woocommerce_currency_symbol');
 }
+
+if (!function_exists('my_enqueue_function')) {
+    function my_enqueue_function()
+    {
+        wp_enqueue_script('wp-util');
+        wp_enqueue_script('my-script', 'my-script.js', ['wp-util']);
+    }
+} else {
+    die('my_enqueue_function');
+}
+
+if (!function_exists('ajax_submit_newsletter')) {
+    function ajax_submit_newsletter($data)
+    {
+        $email = @$_POST["email"];
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            wp_send_json_error(["message" => "Email không hợp lệ"]);
+        }
+        global $wpdb;
+        $wpdb->insert(NEWSLETTER_TABLE, ['email' => $email], ['%s']);
+        wp_send_json_success(["message" => "Đăng ký thành công"]);
+    }
+} else {
+    die('ajax_submit_newsletter');
+}
