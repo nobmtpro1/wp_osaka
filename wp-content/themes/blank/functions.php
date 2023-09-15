@@ -20,7 +20,7 @@ add_action('wp_ajax_nopriv_submit_newsletter', 'ajax_submit_newsletter');
 add_action('wp_ajax_submit_newsletter', 'ajax_submit_newsletter');
 
 add_action('admin_menu', function () {
-    add_menu_page(__('Newsletters', 'wpbc'), __('Newsletters', 'wpbc'), 'activate_plugins', 'aim_newsletter', 'admin_newsletter', 'dashicons-admin-generic', 50);
+    add_menu_page(__('Newsletters', 'wpbc'), __('Newsletters', 'wpbc'), 'activate_plugins', 'aim_newsletter', 'admin_newsletter', 'dashicons-email-alt', 50);
 
     add_submenu_page('aim_newsletter', __('Newsletters', 'wpbc'), __('Newsletters', 'wpbc'), 'activate_plugins', 'aim_newsletter', 'admin_newsletter');
 });

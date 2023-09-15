@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /osaka/wp-admin/
+Allow: /osaka/wp-admin/admin-ajax.php
+
+# START YOAST BLOCK
+# ---------------------------
+User-agent: *
+Disallow:
+
+Sitemap: http://localhost/osaka/sitemap_index.xml
+# ---------------------------
+# END YOAST BLOCK
