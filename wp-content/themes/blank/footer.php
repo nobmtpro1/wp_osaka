@@ -170,6 +170,38 @@
 <?php endif ?>
 
 
+<?php
+$zalo_id = get_field('zalo_id', 'option');
+$zalo_welcome_message = get_field('zalo_welcome_message', 'option');
+?>
+<div class="zalo-chat-widget" data-oaid="<?= $zalo_id ?>" data-welcome-message="<?= $zalo_welcome_message ?>" data-autopopup="03" data-width="350" data-height="420"></div>
+<script src="https://sp.zalo.me/plugins/sdk.js"></script>
+
+
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            xfbml: true,
+            version: 'v7.0'
+        });
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Your Chat Plugin code -->
+<div class="fb-customerchat" attribution=setup_tool page_id="465686066787432" logged_in_greeting="Osaka Việt Nam thân chào quý khách, cảm ơn quý khách đã liên hệ." logged_out_greeting="Osaka Việt Nam thân chào quý khách, cảm ơn quý khách đã liên hệ.">
+</div>
+
 
 </body>
 

@@ -20,6 +20,9 @@ defined('ABSPATH') || exit;
 
 
 get_header('shop');
+
+$fields = get_fields(wc_get_page_id('shop'));
+
 ?>
 <div class="page-shop ">
 	<?php
@@ -35,7 +38,7 @@ get_header('shop');
 	?>
 
 	<section class="banner">
-		<a href=""><img src="<?= TEMPLATE_DIRECTORY ?>/assets/images/image7.webp" alt="banner"></a>
+		<a href="<?= @$fields['banner_link']["url"] ?>" target="<?= @$fields['banner_link']["target"] ?>"><img src="<?= @$fields['banner_image']["url"] ?>" alt="banner"></a>
 	</section>
 	<header class="w-shop-header woocommerce-products-header g-container">
 		<?php if (apply_filters('woocommerce_show_page_title', true)) : ?>

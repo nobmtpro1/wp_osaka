@@ -167,6 +167,13 @@
               display: none;
             }
             max-width: 120px;
+
+            .user-name{
+              display: block;
+              width: 100%;
+              overflow-x: hidden;
+              text-overflow: ellipsis;
+            }
           }
         }
 
