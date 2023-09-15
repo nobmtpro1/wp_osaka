@@ -1,7 +1,4 @@
 <?php
-
-use aim_features\newsletter\NewsletterTable;
-
 require_once 'const.php';
 require_once 'database.php';
 require_once 'helpers.php';
@@ -22,24 +19,10 @@ add_action('wp_enqueue_scripts', 'my_enqueue_function');
 add_action('wp_ajax_nopriv_submit_newsletter', 'ajax_submit_newsletter');
 add_action('wp_ajax_submit_newsletter', 'ajax_submit_newsletter');
 
-function admin_newsletter()
-{
-    $table = new NewsletterTable();
-    $table->prepare_items();
-
-    $message = '';
-    if ('delete' === $table->current_action()) {
-        $message = '<div class="updated below-h2" id="message"><p>' . sprintf(__('Items deleted: %d', 'wpbc'), '1') . '</p></div>';
-    }
-
-    ob_start();
-    require 'includes/newsletter/views/list.php';
-    $content = ob_get_clean();
-    echo $content;
-}
-
 add_action('admin_menu', function () {
     add_menu_page(__('Newsletters', 'wpbc'), __('Newsletters', 'wpbc'), 'activate_plugins', 'aim_newsletter', 'admin_newsletter', 'dashicons-admin-generic', 50);
 
     add_submenu_page('aim_newsletter', __('Newsletters', 'wpbc'), __('Newsletters', 'wpbc'), 'activate_plugins', 'aim_newsletter', 'admin_newsletter');
 });
+
+// wp_mail("nobmtpro1@gmail.com", "Subject", "Message");

@@ -397,7 +397,8 @@
 
     .blogs-slider {
       .swiper-slide {
-        height: 550px;
+        height: 500px;
+        margin-bottom: 50px;
 
         .blog {
           display: flex;
@@ -410,6 +411,7 @@
           box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
           padding-bottom: 20px;
           margin: 5px;
+          height: 100%;
 
           .image {
             width: 100%;

@@ -1,4 +1,7 @@
 <?php
+
+use aim_features\newsletter\NewsletterTable;
+
 if (!function_exists('my_custom_wc_theme_support')) {
     function my_custom_wc_theme_support()
     {
@@ -302,4 +305,18 @@ if (!function_exists('ajax_submit_newsletter')) {
     }
 } else {
     die('ajax_submit_newsletter');
+}
+
+if (!function_exists('admin_newsletter')) {
+    function admin_newsletter()
+    {
+        $table = new NewsletterTable();
+        $table->prepare_items();
+        ob_start();
+        require 'includes/newsletter/views/list.php';
+        $content = ob_get_clean();
+        echo $content;
+    }
+} else {
+    die('admin_newsletter');
 }

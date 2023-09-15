@@ -130,8 +130,20 @@
   }
 }
 
-
-.zalo-chat-widget{
+.zalo-chat-widget {
   right: 18px !important;
   bottom: 90px !important;
+}
+
+.g-content {
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
 }

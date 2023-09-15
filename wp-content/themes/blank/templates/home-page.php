@@ -168,22 +168,38 @@ $fields = get_fields();
             <div class="swiper blogs-slider">
                 <div class="swiper-wrapper">
 
-                    <?php for ($i = 0; $i < 10; $i++) : ?>
-                        <div class="swiper-slide">
-                            <div class="blog">
-                                <div class="image">
-                                    <img src="<?= TEMPLATE_DIRECTORY ?>/assets/images/image4.webp" alt="blog">
-                                    <div class="date">
-                                        <div class="day">02</div>
-                                        <div class="year">10/2018</div>
+
+                    <?php
+                    $query = new WP_Query([
+                        'post_type' => 'post',
+                        'post_status' => 'publish',
+                        'post_count' => 12,
+                        'order' => 'DESC',
+                        'orderby' => 'ID',
+                    ]);
+                    if ($query->have_posts()) {
+                        while ($query->have_posts()) {
+                            $query->the_post();
+                    ?>
+                            <div class="swiper-slide">
+                                <div class="blog">
+                                    <div class="image">
+                                        <?= get_the_post_thumbnail() ?>
+                                        <div class="date">
+                                            <div class="day"><?= date("d", strtotime($post->post_date)); ?></div>
+                                            <div class="year"><?= date("m/Y", strtotime($post->post_date)); ?></div>
+                                        </div>
                                     </div>
+                                    <h3 class="title"><?= the_title() ?></h3>
+                                    <p class="description"><?= get_the_excerpt() ?></p>
+                                    <a href="<?= get_the_permalink() ?>" class="g-button">Xem thêm</a>
                                 </div>
-                                <h3 class="title">Ấm áp cơm gia đình</h3>
-                                <p class="description">"CƠM ĐÂU SAO BẰNG CƠM NHÀ - BÁT CƠM ẤM ÁP MÓN QUÀ TÌNH THÂN" hãy để Osaka sẻ...</p>
-                                <a href="" class="g-button">Xem thêm</a>
                             </div>
-                        </div>
-                    <?php endfor ?>
+                    <?php
+                        }
+                    }
+                    ?>
+
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>

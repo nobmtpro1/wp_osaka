@@ -7,8 +7,8 @@
   }
 }
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
@@ -192,6 +192,17 @@ select {
 .zalo-chat-widget {
   right: 18px !important;
   bottom: 90px !important;
+}
+
+.g-content p,
+.g-content h1,
+.g-content h2,
+.g-content h3,
+.g-content h4,
+.g-content h5,
+.g-content h6 {
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 .w-loop-product {
@@ -1613,7 +1624,8 @@ select {
   border-bottom: 20px #e4e4e4 solid;
 }
 .page-home section.blogs .blogs-slider .swiper-slide {
-  height: 550px;
+  height: 500px;
+  margin-bottom: 50px;
 }
 .page-home section.blogs .blogs-slider .swiper-slide .blog {
   display: flex;
@@ -1626,6 +1638,7 @@ select {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding-bottom: 20px;
   margin: 5px;
+  height: 100%;
 }
 .page-home section.blogs .blogs-slider .swiper-slide .blog .image {
   width: 100%;

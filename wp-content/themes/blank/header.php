@@ -64,7 +64,7 @@
                             <?php
                             $user = wp_get_current_user();
                             ?>
-                            <b class="user-name"><?= @$user->data->user_email ?? " Đăng nhập" ?></b>
+                            <b class="user-name"><?= @$user->data->display_name ?? @$user->data->user_login  ?? "Đăng nhập" ?></b>
                             Chi tiết tài khoản
                         </div>
                     </a>
