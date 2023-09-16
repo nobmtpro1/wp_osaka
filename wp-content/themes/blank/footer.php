@@ -157,9 +157,10 @@
 
 <?php include 'views/button-contact-vr.php' ?>
 
-<?php wp_footer() ?>
+
 
 <script src="<?= TEMPLATE_DIRECTORY ?>/assets/libs/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js" integrity="sha512-zlWWyZq71UMApAjih4WkaRpikgY9Bz1oXIW5G0fED4vk14JjGlQ1UmkGM392jEULP8jbNMiwLWdM8Z87Hu88Fw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="<?= TEMPLATE_DIRECTORY ?>/assets/libs/swiper.js"></script>
 <script src="<?= TEMPLATE_DIRECTORY ?>/assets/js/main.js?v=<?= time() ?>"></script>
@@ -202,7 +203,7 @@ $zalo_welcome_message = get_field('zalo_welcome_message', 'option');
 <div class="fb-customerchat" attribution=setup_tool page_id="465686066787432" logged_in_greeting="Osaka Việt Nam thân chào quý khách, cảm ơn quý khách đã liên hệ." logged_out_greeting="Osaka Việt Nam thân chào quý khách, cảm ơn quý khách đã liên hệ.">
 </div>
 
-
+<?php wp_footer() ?>
 </body>
 
 </html>

@@ -120,6 +120,10 @@
   overflow-x: auto;
   padding: 20px;
 
+  &::before{
+    display: none !important;
+  }
+
   /* width */
   &::-webkit-scrollbar {
     width: 5px;
@@ -653,15 +657,15 @@
     }
   }
 
-  // .select2-container--default .select2-selection--single {
-  //   @include input;
-  //   height: 50px;
-  //   padding-top: 12px;
-  //   .select2-selection__arrow {
-  //     top: 12px !important;
-  //     right: 5px;
-  //   }
-  // }
+  .select2-container--default .select2-selection--single {
+    @include input;
+    height: 50px;
+    padding-top: 12px;
+    .select2-selection__arrow {
+      top: 12px !important;
+      right: 5px;
+    }
+  }
 }
 
 .w-checkout-form {

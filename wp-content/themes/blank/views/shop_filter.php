@@ -13,10 +13,21 @@
         <form action="">
             <input type="hidden" name="paged" value="1">
             <?php foreach ($_GET as $key => $value) : ?>
-                <?php if ($key != "price_range" && $key != "paged") : ?>
+                <?php if ($key != "price_range" && $key != "paged" && $key != "product_cat") : ?>
                     <input type="hidden" name="<?= $key ?>" value="<?= $value ?>">
                 <?php endif ?>
             <?php endforeach ?>
+
+            <select name="product_cat" id="">
+                <option value="">Chọn danh mục sản phẩm</option>
+                <?php
+                $categories = get_all_categories();
+                $current_category = get_queried_object();
+                ?>
+                <?php foreach ($categories as $category) : ?>
+                    <option <?= $current_category->slug == $category->slug ? "selected" : "" ?> value="<?= $category->slug ?>"><?= $category->name ?></option>
+                <?php endforeach ?>
+            </select>
             <select name="price_range" id="">
                 <option value="">Chọn mức giá</option>
                 <option <?= $_GET["price_range"] == "0-100000" ? "selected" : "" ?> value="0-100000">Dưới 100,000₫</option>
