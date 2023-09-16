@@ -46,10 +46,10 @@ $random_string = generateRandomString(5)
 	?>
 </div>
 
-<div class="component-modal w-loop-preview-modal" data-productid="<?= $random_string ?>">
+<div class="component-modal w-loop-preview-modal">
 	<div class="content w-loop-preview-content">
 		<div class="close"><i class="fa-solid fa-xmark"></i></div>
-		<div class="w-product-modal-content-left">
+		<div class="w-product-modal-content-left" data-productid="<?= $random_string ?>">
 			<div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper w-product-gallery-2-<?= $random_string ?> w-product-gallery-2">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">

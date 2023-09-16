@@ -6,7 +6,7 @@ $(document).on("click", ".w-loop-preview-button", function (e) {
     ?.toggleClass("active");
 });
 
-$(".w-loop-preview-modal").each(function (i) {
+$(".w-product-modal-content-left").each(function (i) {
   console.log(
     $(`.w-product-gallery-${$(this).data("productid")}`)?.length,
     $(`.w-product-gallery-2-${$(this).data("productid")}`)?.length

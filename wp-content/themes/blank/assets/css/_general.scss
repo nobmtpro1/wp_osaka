@@ -142,8 +142,13 @@
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  ul {
     padding-top: 7px;
     padding-bottom: 7px;
+  }
+
+  ul {
+    padding-left: 20px;
   }
 }

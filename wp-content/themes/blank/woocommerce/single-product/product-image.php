@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Single Product Image
  *
@@ -15,41 +16,63 @@
  * @version 7.8.0
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 // Note: `wc_get_gallery_image_html` was added in WC 3.3.2 and did not exist prior. This check protects against theme overrides being used on older versions of WC.
-if ( ! function_exists( 'wc_get_gallery_image_html' ) ) {
+if (!function_exists('wc_get_gallery_image_html')) {
 	return;
 }
 
 global $product;
 
-$columns           = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
+$columns           = apply_filters('woocommerce_product_thumbnails_columns', 4);
 $post_thumbnail_id = $product->get_image_id();
 $wrapper_classes   = apply_filters(
 	'woocommerce_single_product_image_gallery_classes',
 	array(
 		'woocommerce-product-gallery',
-		'woocommerce-product-gallery--' . ( $post_thumbnail_id ? 'with-images' : 'without-images' ),
-		'woocommerce-product-gallery--columns-' . absint( $columns ),
+		'woocommerce-product-gallery--' . ($post_thumbnail_id ? 'with-images' : 'without-images'),
+		'woocommerce-product-gallery--columns-' . absint($columns),
 		'images',
 	)
 );
+
+global $product;
+$attachment_ids = $product->get_gallery_image_ids();
+$feature_image = wp_get_attachment_image(get_post_thumbnail_id($product->id));
+$random_string = generateRandomString(5)
+
+
 ?>
-<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>" data-columns="<?php echo esc_attr( $columns ); ?>" style="opacity: 0; transition: opacity .25s ease-in-out;">
-	<div class="woocommerce-product-gallery__wrapper">
-		<?php
-		if ( $post_thumbnail_id ) {
-			$html = wc_get_gallery_image_html( $post_thumbnail_id, true );
-		} else {
-			$html  = '<div class="woocommerce-product-gallery__image--placeholder">';
-			$html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ), esc_html__( 'Awaiting product image', 'woocommerce' ) );
-			$html .= '</div>';
-		}
+<div class="<?php echo esc_attr(implode(' ', array_map('sanitize_html_class', $wrapper_classes))); ?>" >
 
-		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $post_thumbnail_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
-
-		do_action( 'woocommerce_product_thumbnails' );
-		?>
+	<div class="w-product-modal-content-left" data-productid="<?= $random_string ?>">
+		<div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper w-product-gallery-2-<?= $random_string ?> w-product-gallery-2">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<?= $feature_image ?>
+				</div>
+				<?php foreach ($attachment_ids as $image_id) : ?>
+					<div class="swiper-slide">
+						<?= wp_get_attachment_image($image_id); ?>
+					</div>
+				<?php endforeach ?>
+			</div>
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+		</div>
+		<div thumbsSlider="" class="w-product-gallery swiper w-product-gallery-<?= $random_string ?>">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<?= $feature_image ?>
+				</div>
+				<?php foreach ($attachment_ids as $image_id) : ?>
+					<div class="swiper-slide">
+						<?= wp_get_attachment_image($image_id); ?>
+					</div>
+				<?php endforeach ?>
+			</div>
+		</div>
 	</div>
+
 </div>

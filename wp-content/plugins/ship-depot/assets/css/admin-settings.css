@@ -1,0 +1,45 @@
+#sd_api_key {
+  width: 15rem;
+}
+
+#sd-general-settings b {
+  display: block;
+}
+
+#sd-general-settings div#sender-info {
+  font-size: 1.05rem;
+  font-family: sans-serif;
+}
+
+#sd-general-settings .advance-settings-section {
+  margin-bottom: 20px;
+}
+
+#sd-general-settings .advance-settings-title {
+  color: var(--bs-link-color);
+}
+
+#sd-general-settings .label-status {
+  margin: 4px 0;
+}
+
+/* #btn_sync_settings {
+  margin-top: 20px;
+} */
+
+#sd-about li.sd-advantage {
+  background: url("../images/ic_check_mark.png") no-repeat 0px 4px;
+  padding-left: 20px;
+}
+
+@media screen and (max-width: 1023px) {
+  #sd-general-settings .label-status {
+    margin: 8px 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #sd-general-settings .label-status {
+    margin: 12px 0;
+  }
+}
