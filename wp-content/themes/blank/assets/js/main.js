@@ -101,7 +101,7 @@ $(document).on("click", ".w-buynow", function () {
   } else {
     setTimeout(() => {
       window.location.href = "http://localhost/osaka/cart";
-    }, 100);
+    }, 1000);
   }
 });
 

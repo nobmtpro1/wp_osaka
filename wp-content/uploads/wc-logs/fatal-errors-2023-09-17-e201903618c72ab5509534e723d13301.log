@@ -1,0 +1,214 @@
+2023-09-17T08:50:10+00:00 CRITICAL Uncaught InvalidArgumentException: Invalid resource type: array in C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\psr7\src\Utils.php:341
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\psr7\src\Request.php(57): GuzzleHttp\Psr7\Utils::streamFor(Array)
+#1 C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php(45): GuzzleHttp\Psr7\Request->__construct('POST', Object(GuzzleHttp\Psr7\Uri), Array, Array)
+#2 C:\xampp\htdocs\osaka\wp-settings.php(600): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\osaka\wp-config.php(28): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\osaka\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\osaka\wp-admin\admin.php(34): require_once('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\osaka\wp-admin\post.php(12): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+  thrown in C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\psr7\src\Utils.php on line 341
+
+2023-09-17T08:53:42+00:00 CRITICAL Uncaught GuzzleHttp\Exception\ClientException: Client error: `POST http://httpbin.org/head` resulted in a `404 NOT FOUND` response:
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<title>404 Not Found</title>
+<h1>Not Found</h1>
+<p>The requested (truncated...)
+ in C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Exception\RequestException.php:113
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Middleware.php(72): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response), NULL, Array, NULL)
+#1 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\promises\src\Promise.php(209): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\promises\src\Promise.php(158): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Response), NULL)
+#3 C:\xampp\htdocs\osaka\wp-content\themes in C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Exception\RequestException.php on line 113
+
+2023-09-17T08:54:38+00:00 CRITICAL Uncaught GuzzleHttp\Exception\RequestException: cURL error 60: SSL certificate problem: self signed certificate (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://foo.com/api/test in C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php:211
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php(158): GuzzleHttp\Handler\CurlFactory::createRejection(Object(GuzzleHttp\Handler\EasyHandle), Array)
+#1 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php(110): GuzzleHttp\Handler\CurlFactory::finishError(Object(GuzzleHttp\Handler\CurlHandler), Object(GuzzleHttp\Handler\EasyHandle), Object(GuzzleHttp\Handler\CurlFactory))
+#2 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Handler\CurlHandler.php(47): GuzzleHttp\Handler\CurlFactory::finish(Object(GuzzleHttp\Handler\CurlHandler), Object(GuzzleHttp\Handler\EasyHandle), Object(Gu in C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php on line 211
+
+2023-09-17T08:55:19+00:00 CRITICAL Uncaught GuzzleHttp\Exception\ClientException: Client error: `POST https://dev-online-gateway.ghn.vn/shiip/public-api/v2/shipping-order/create` resulted in a `401 Unauthorized` response:
+{"code":401,"message":"Token is required!","data":null}
+
+ in C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Exception\RequestException.php:113
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Middleware.php(72): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response), NULL, Array, NULL)
+#1 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\promises\src\Promise.php(209): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\promises\src\Promise.php(158): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Response), NULL)
+#3 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp in C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Exception\RequestException.php on line 113
+
+2023-09-17T08:58:16+00:00 CRITICAL syntax error, unexpected '}' in C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php on line 149
+
+2023-09-17T09:00:30+00:00 CRITICAL Uncaught GuzzleHttp\Exception\InvalidArgumentException: Passing in the "body" request option as an array to send a request is not supported. Please use the "form_params" request option to send a application/x-www-form-urlencoded request, or the "multipart" request option to send a multipart/form-data request. in C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Client.php:477
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Client.php(163): GuzzleHttp\Client->invalidBody()
+#1 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Client.php(189): GuzzleHttp\Client->requestAsync('POST', Object(GuzzleHttp\Psr7\Uri), Array)
+#2 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\ClientTrait.php(95): GuzzleHttp\Client->request('POST', 'https://dev-onl...', Array)
+#3 C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php(146): GuzzleHttp\Client->post('https://dev-onl...', Array)
+#4 C:\xampp\htdocs\osak in C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Client.php on line 477
+
+2023-09-17T09:00:37+00:00 CRITICAL Uncaught GuzzleHttp\Exception\InvalidArgumentException: Passing in the "body" request option as an array to send a request is not supported. Please use the "form_params" request option to send a application/x-www-form-urlencoded request, or the "multipart" request option to send a multipart/form-data request. in C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Client.php:477
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Client.php(163): GuzzleHttp\Client->invalidBody()
+#1 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Client.php(189): GuzzleHttp\Client->requestAsync('POST', Object(GuzzleHttp\Psr7\Uri), Array)
+#2 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\ClientTrait.php(95): GuzzleHttp\Client->request('POST', 'https://dev-onl...', Array)
+#3 C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php(146): GuzzleHttp\Client->post('https://dev-onl...', Array)
+#4 C:\xampp\htdocs\osak in C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Client.php on line 477
+
+2023-09-17T09:01:50+00:00 CRITICAL Uncaught GuzzleHttp\Exception\InvalidArgumentException: Passing in the "body" request option as an array to send a request is not supported. Please use the "form_params" request option to send a application/x-www-form-urlencoded request, or the "multipart" request option to send a multipart/form-data request. in C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Client.php:477
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Client.php(163): GuzzleHttp\Client->invalidBody()
+#1 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Client.php(189): GuzzleHttp\Client->requestAsync('POST', Object(GuzzleHttp\Psr7\Uri), Array)
+#2 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\ClientTrait.php(95): GuzzleHttp\Client->request('POST', 'https://dev-onl...', Array)
+#3 C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php(147): GuzzleHttp\Client->post('https://dev-onl...', Array)
+#4 C:\xampp\htdocs\osak in C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Client.php on line 477
+
+2023-09-17T09:02:29+00:00 CRITICAL Uncaught GuzzleHttp\Exception\InvalidArgumentException: Passing in the "body" request option as an array to send a request is not supported. Please use the "form_params" request option to send a application/x-www-form-urlencoded request, or the "multipart" request option to send a multipart/form-data request. in C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Client.php:477
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Client.php(163): GuzzleHttp\Client->invalidBody()
+#1 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Client.php(189): GuzzleHttp\Client->requestAsync('POST', Object(GuzzleHttp\Psr7\Uri), Array)
+#2 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\ClientTrait.php(95): GuzzleHttp\Client->request('POST', 'https://dev-onl...', Array)
+#3 C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php(147): GuzzleHttp\Client->post('https://dev-onl...', Array)
+#4 C:\xampp\htdocs\osak in C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Client.php on line 477
+
+2023-09-17T09:03:18+00:00 CRITICAL Uncaught GuzzleHttp\Exception\ClientException: Client error: `POST https://dev-online-gateway.ghn.vn/shiip/public-api/v2/shipping-order/create` resulted in a `400 Bad Request` response:
+{"code":400,"message":"code=400, message=Syntax error: offset=1, error=invalid character 'e' looking for beginning of va (truncated...)
+ in C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Exception\RequestException.php:113
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Middleware.php(72): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response), NULL, Array, NULL)
+#1 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\promises\src\Promise.php(209): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\promises\src\Promise.php(158): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Respo in C:\xampp\htdocs\osaka\wp-content\themes\blank\vendor\guzzlehttp\guzzle\src\Exception\RequestException.php on line 113
+
+2023-09-17T09:09:00+00:00 CRITICAL Uncaught Error: Class 'Request' not found in C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php:142
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-settings.php(600): include()
+#1 C:\xampp\htdocs\osaka\wp-config.php(28): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\osaka\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\osaka\wp-admin\admin.php(34): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\osaka\wp-admin\post.php(12): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php on line 142
+
+2023-09-17T10:09:10+00:00 CRITICAL Uncaught Exception: Đơn hàng không hợp lệ. in C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\data-stores\abstract-wc-order-data-store-cpt.php:137
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\class-wc-data-store.php(159): Abstract_WC_Order_Data_Store_CPT->read(Object(WC_Order))
+#1 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-order.php(130): WC_Data_Store->read(Object(WC_Order))
+#2 C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php(40): WC_Abstract_Order->__construct(297)
+#3 C:\xampp\htdocs\osaka\wp-settings.php(600): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\osaka\wp-config.php(28): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\osaka\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\osaka\wp-admin\admin-ajax.php(22): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+  thrown in C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\data-stores\abstract-wc-order-data-store-cpt.php on line 137
+
+2023-09-17T10:09:10+00:00 CRITICAL Uncaught Exception: Đơn hàng không hợp lệ. in C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\data-stores\abstract-wc-order-data-store-cpt.php:137
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\class-wc-data-store.php(159): Abstract_WC_Order_Data_Store_CPT->read(Object(WC_Order))
+#1 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-order.php(130): WC_Data_Store->read(Object(WC_Order))
+#2 C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php(40): WC_Abstract_Order->__construct(297)
+#3 C:\xampp\htdocs\osaka\wp-settings.php(600): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\osaka\wp-config.php(28): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\osaka\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\osaka\wp-admin\admin.php(34): require_once('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\osaka\wp-admin\post.php(12): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+  thrown in C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\data-stores\abstract-wc-order-data-store-cpt.php on line 137
+
+2023-09-17T10:09:11+00:00 CRITICAL Uncaught Exception: Đơn hàng không hợp lệ. in C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\data-stores\abstract-wc-order-data-store-cpt.php:137
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\class-wc-data-store.php(159): Abstract_WC_Order_Data_Store_CPT->read(Object(WC_Order))
+#1 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-order.php(130): WC_Data_Store->read(Object(WC_Order))
+#2 C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php(40): WC_Abstract_Order->__construct(297)
+#3 C:\xampp\htdocs\osaka\wp-settings.php(600): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\osaka\wp-config.php(28): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\osaka\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\osaka\wp-admin\admin-ajax.php(22): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+  thrown in C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\data-stores\abstract-wc-order-data-store-cpt.php on line 137
+
+2023-09-17T10:10:11+00:00 CRITICAL Uncaught Exception: Đơn hàng không hợp lệ. in C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\data-stores\abstract-wc-order-data-store-cpt.php:137
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\class-wc-data-store.php(159): Abstract_WC_Order_Data_Store_CPT->read(Object(WC_Order))
+#1 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-order.php(130): WC_Data_Store->read(Object(WC_Order))
+#2 C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php(40): WC_Abstract_Order->__construct('297')
+#3 C:\xampp\htdocs\osaka\wp-settings.php(600): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\osaka\wp-config.php(28): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\osaka\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\osaka\wp-admin\admin.php(34): require_once('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\osaka\wp-admin\post.php(12): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+  thrown in C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\data-stores\abstract-wc-order-data-store-cpt.php on line 137
+
+2023-09-17T10:10:32+00:00 CRITICAL Uncaught Exception: Đơn hàng không hợp lệ. in C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\data-stores\abstract-wc-order-data-store-cpt.php:137
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\class-wc-data-store.php(159): Abstract_WC_Order_Data_Store_CPT->read(Object(WC_Order))
+#1 C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-order.php(130): WC_Data_Store->read(Object(WC_Order))
+#2 C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php(40): WC_Abstract_Order->__construct(297)
+#3 C:\xampp\htdocs\osaka\wp-settings.php(600): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\osaka\wp-config.php(28): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\osaka\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\osaka\wp-admin\admin.php(34): require_once('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\osaka\wp-admin\post.php(12): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+  thrown in C:\xampp\htdocs\osaka\wp-content\plugins\woocommerce\includes\data-stores\abstract-wc-order-data-store-cpt.php on line 137
+
+2023-09-17T10:14:35+00:00 CRITICAL Uncaught Error: Call to undefined function dd() in C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php:53
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-settings.php(600): include()
+#1 C:\xampp\htdocs\osaka\wp-config.php(28): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\osaka\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\osaka\wp-admin\admin.php(34): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\osaka\wp-admin\post.php(12): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php on line 53
+
+2023-09-17T10:14:36+00:00 CRITICAL Uncaught Error: Call to undefined function dd() in C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php:53
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-settings.php(600): include()
+#1 C:\xampp\htdocs\osaka\wp-config.php(28): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\osaka\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\osaka\wp-admin\admin-ajax.php(22): require_once('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php on line 53
+
+2023-09-17T10:16:47+00:00 CRITICAL Cannot redeclare dd() (previously declared in C:\xampp\htdocs\osaka\wp-content\plugins\laravel-dd\wp-laravel-dd.php:63) in C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php on line 57
+
+2023-09-17T10:17:58+00:00 CRITICAL Cannot redeclare dd() (previously declared in C:\xampp\htdocs\osaka\wp-content\plugins\laravel-dd\wp-laravel-dd.php:63) in C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php on line 57
+
+2023-09-17T10:57:04+00:00 CRITICAL Uncaught Error: Cannot access protected property WC_Order_Item_Product::$data in C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php:356
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-includes\class-wp-hook.php(310): ajax_create_ghn_order('')
+#1 C:\xampp\htdocs\osaka\wp-includes\class-wp-hook.php(334): WP_Hook->apply_filters('', Array)
+#2 C:\xampp\htdocs\osaka\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\osaka\wp-admin\admin-ajax.php(188): do_action('wp_ajax_create_...')
+#4 {main}
+  thrown in C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php on line 356
+
+2023-09-17T10:57:44+00:00 CRITICAL Uncaught Error: Cannot access protected property WC_Order_Item_Product::$data in C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php:356
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-includes\class-wp-hook.php(310): ajax_create_ghn_order('')
+#1 C:\xampp\htdocs\osaka\wp-includes\class-wp-hook.php(334): WP_Hook->apply_filters('', Array)
+#2 C:\xampp\htdocs\osaka\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\osaka\wp-admin\admin-ajax.php(188): do_action('wp_ajax_create_...')
+#4 {main}
+  thrown in C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php on line 356
+
+2023-09-17T10:58:37+00:00 CRITICAL Uncaught Error: Cannot access protected property WC_Order_Item_Product::$data in C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php:357
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-includes\class-wp-hook.php(310): ajax_create_ghn_order('')
+#1 C:\xampp\htdocs\osaka\wp-includes\class-wp-hook.php(334): WP_Hook->apply_filters('', Array)
+#2 C:\xampp\htdocs\osaka\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\osaka\wp-admin\admin-ajax.php(188): do_action('wp_ajax_create_...')
+#4 {main}
+  thrown in C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php on line 357
+
+2023-09-17T10:59:10+00:00 CRITICAL Uncaught Error: Cannot access protected property WC_Order_Item_Product::$data in C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php:357
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-includes\class-wp-hook.php(310): ajax_create_ghn_order('')
+#1 C:\xampp\htdocs\osaka\wp-includes\class-wp-hook.php(334): WP_Hook->apply_filters('', Array)
+#2 C:\xampp\htdocs\osaka\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\osaka\wp-admin\admin-ajax.php(188): do_action('wp_ajax_create_...')
+#4 {main}
+  thrown in C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php on line 357
+

@@ -2,6 +2,18 @@
 
 use aim_features\newsletter\NewsletterTable;
 
+if (!function_exists('dd')) {
+    function dd()
+    {
+        foreach (func_get_args() as $x) {
+            dump($x);
+        }
+        die;
+    }
+} else {
+    die('dd');
+}
+
 if (!function_exists('my_custom_wc_theme_support')) {
     function my_custom_wc_theme_support()
     {
@@ -28,6 +40,15 @@ if (!function_exists('initTheme')) {
     }
 } else {
     die('initTheme');
+}
+
+if (!function_exists('my_admin_enqueue_scripts')) {
+    function my_admin_enqueue_scripts($hook)
+    {
+        wp_enqueue_script('my_admin_enqueue_scripts', TEMPLATE_DIRECTORY . '/assets/js/admin.js', ['jquery'], '1.0', true);
+    }
+} else {
+    die('my_admin_enqueue_scripts');
 }
 
 if (!function_exists('get_percent_sale')) {
@@ -319,4 +340,80 @@ if (!function_exists('admin_newsletter')) {
     }
 } else {
     die('admin_newsletter');
+}
+
+if (!function_exists('ajax_create_ghn_order')) {
+    function ajax_create_ghn_order()
+    {
+        try {
+            $order = wc_get_order($_POST["order_id"]);
+            $shipping = $order->data["shipping"];
+            // dd($order->data);
+
+            $line_items = $order->data["line_items"];
+            $items = [];
+            foreach ($line_items as $line_item) {
+                $data = $line_item->get_data();
+                $product = wc_get_product($data["product_id"])->get_data();
+                $items[] = [
+                    "name" => $data["name"],
+                    "code" => $product["sku"],
+                    "quantity" =>  $data["quantity"],
+                    "price" =>  $data["total"],
+                    "length" => $product["length"],
+                    "width" => $product["width"],
+                    "height" => $product["height"],
+                    "weight" => $product["weight"],
+                    "category" => [
+                        "level1" => @get_term(@$product["category_ids"][0])->name
+                    ]
+                ];
+            }
+
+            $settings = get_option('woocommerce_giao_hang_nhanh_settings');
+            $token = $settings["api_token"];
+
+            $body = [
+                "payment_type_id" => $_POST["payment_type_id"],
+                "note" => $_POST["note"],
+                "required_note" => $_POST["required_note"],
+                "client_order_code" => $_POST["client_order_code"],
+                "to_name" => $shipping["first_name"],
+                "to_phone" => $shipping["phone"],
+                "to_address" => $shipping["address_1"],
+                "to_ward_code" => $shipping["city"],
+                "to_district_id" => end((explode("_", $shipping["state"]))),
+                "cod_amount" =>  $_POST["cod_amount"],
+                "weight" => $_POST["weight"],
+                "length" => $_POST["length"],
+                "width" => $_POST["width"],
+                "height" => $_POST["height"],
+                "deliver_station_id" => null,
+                "insurance_value" =>  $_POST["insurance_value"],
+                "service_type_id" => 2,
+                "items" => $items
+            ];
+            // dd($body);
+            $client = new \GuzzleHttp\Client();
+            $response = $client->post(
+                'https://dev-online-gateway.ghn.vn/shiip/public-api/v2/shipping-order/create',
+                [
+                    'headers' => [
+                        'Content-Type' => 'application/json',
+                        "Token" => $token,
+                        "ShopId" => $_POST["shop_id"]
+                    ],
+                    'body' =>  json_encode($body)
+                ]
+            );
+            $response_data = json_decode($response->getBody()->getContents());
+            $message = $response_data->message_display;
+            wp_send_json_success(["message" => $message]);
+        } catch (GuzzleHttp\Exception\ClientException $e) {
+            $message = json_decode($e->getResponse()->getBody()->getContents())->code_message_value;
+            wp_send_json_error(["message" => $message]);
+        }
+    }
+} else {
+    die('ajax_create_ghn_order');
 }
