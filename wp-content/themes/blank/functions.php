@@ -25,6 +25,9 @@ add_filter('woocommerce_currency_symbol', 'my_woocommerce_currency_symbol', 10, 
 add_action('wp_ajax_nopriv_submit_newsletter', 'ajax_submit_newsletter');
 add_action('wp_ajax_submit_newsletter', 'ajax_submit_newsletter');
 add_action('wp_ajax_create_ghn_order', 'ajax_create_ghn_order');
+add_action('wp_ajax_update_ghn_order', 'ajax_update_ghn_order');
+add_action('wp_ajax_cancel_ghn_order', 'ajax_cancel_ghn_order');
+add_action('wp_ajax_check_ghn_order', 'ajax_check_ghn_order');
 
 // admin_menu
 add_action('admin_menu', function () {
@@ -38,15 +41,6 @@ add_action('wp_enqueue_scripts', 'my_enqueue_function');
 add_action('admin_enqueue_scripts', 'my_admin_enqueue_scripts');
 
 // woocommerce_giao_hang_nhanh_settings devvn_woo_district
-// dd(get_option('woocommerce_giao_hang_nhanh_settings'));
+// dd(get_option('devvn_woo_district')["moitruong"]);
 
-
-$flash_message = get_flash_message("success");
-if ($flash_message) {
-    function wpse60244_custom_admin_notice()
-    {
-        global $flash_message;
-        return print '<div id="message" class="updated fade"><p><strong>Hi!</strong>"' . $flash_message["message"] . '"</p></div>';
-    }
-    add_action('admin_notices', 'wpse60244_custom_admin_notice');
-}
+add_action('admin_notices', 'my_admin_notices');

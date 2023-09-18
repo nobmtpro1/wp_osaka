@@ -229,6 +229,14 @@ if (!function_exists('iconic_cart_count_fragments')) {
         ob_start();
         include 'views/mini-cart.php';
         $mini_cart = ob_get_clean();
+        $mini_cart .= '<script>
+        $.toast({
+            text: "Thêm vào giỏ hàng thành công",
+            showHideTransition: "plain",
+            icon: "success",
+            position: "top-right",
+          });
+        </script>';
         $fragments['.cart-contents-count'] = $mini_cart;
         return $fragments;
     }
@@ -420,9 +428,15 @@ if (!function_exists('ajax_create_ghn_order')) {
                 "items" => $items
             ];
             // dd($body);
+
+            $env = @get_option('devvn_woo_district')["moitruong"];
+            $url = GHN_TEST_URL . 'shipping-order/create';
+            if ($env == "product") {
+                $url = GHN_PRODUCT_URL . "shipping-order/create";
+            }
             $client = new \GuzzleHttp\Client();
             $response = $client->post(
-                'https://dev-online-gateway.ghn.vn/shiip/public-api/v2/shipping-order/create',
+                $url,
                 [
                     'headers' => [
                         'Content-Type' => 'application/json',
@@ -438,7 +452,6 @@ if (!function_exists('ajax_create_ghn_order')) {
             } else {
                 add_post_meta($_POST["order_id"], GHN_ORDER_CODE, $response_data->data->order_code, true);
             }
-            add_action('admin_notices', 'wpse75629_admin_notice');
             $message = $response_data->message_display;
             create_flash_message("success", $response_data->message_display, "success");
             wp_send_json_success(["message" => $message]);
@@ -449,4 +462,133 @@ if (!function_exists('ajax_create_ghn_order')) {
     }
 } else {
     die('ajax_create_ghn_order');
+}
+
+if (!function_exists('my_admin_notices')) {
+    function my_admin_notices()
+    {
+        $flash_message = get_flash_message("success");
+        if ($flash_message) {
+
+            return print '<div id="message" class="updated fade"><p><strong>' . $flash_message["message"] . '</strong></p></div>';
+        }
+    }
+} else {
+    die('my_admin_notices');
+}
+
+if (!function_exists('ajax_check_ghn_order')) {
+    function ajax_check_ghn_order()
+    {
+        if (metadata_exists('post', $_POST["order_id"], GHN_ORDER_CODE)) {
+            $order_code =  get_post_meta($_POST["order_id"], GHN_ORDER_CODE, true);
+            wp_send_json_success(["order_code" => $order_code]);
+        } else {
+            wp_send_json_error(["message" => "Not found"]);
+        }
+    }
+} else {
+    die('ajax_check_ghn_order');
+}
+
+if (!function_exists('ajax_update_ghn_order')) {
+    function ajax_update_ghn_order()
+    {
+        try {
+            $order = wc_get_order($_POST["order_id"]);
+            $shipping = $order->data["shipping"];
+            $settings = get_option('woocommerce_giao_hang_nhanh_settings');
+            $token = $settings["api_token"];
+
+            $body = [
+                "order_code" => $_POST["order_code"],
+                "payment_type_id" => (int)$_POST["payment_type_id"],
+                "note" => $_POST["note"],
+                "required_note" => $_POST["required_note"],
+                "client_order_code" => $_POST["client_order_code"],
+                "to_name" => $shipping["first_name"],
+                "to_phone" => $shipping["phone"],
+                "to_address" => $shipping["address_1"],
+                "to_ward_code" => $shipping["city"],
+                "to_district_id" => (int)end((explode("_", $shipping["state"]))),
+                "cod_amount" =>  (int)$_POST["cod_amount"],
+                "weight" => (int)$_POST["weight"],
+                "length" => (int)$_POST["length"],
+                "width" => (int)$_POST["width"],
+                "height" => (int)$_POST["height"],
+                "insurance_value" =>  (int)$_POST["insurance_value"],
+            ];
+            // dd($body);
+
+            $env = @get_option('devvn_woo_district')["moitruong"];
+            $url = GHN_TEST_URL . 'shipping-order/update';
+            if ($env == "product") {
+                $url = GHN_PRODUCT_URL . "shipping-order/update";
+            }
+            $client = new \GuzzleHttp\Client();
+            $response = $client->post(
+                $url,
+                [
+                    'headers' => [
+                        'Content-Type' => 'application/json',
+                        "Token" => $token,
+                        "ShopId" => $_POST["shop_id"]
+                    ],
+                    'body' =>  json_encode($body)
+                ]
+            );
+            $message = "Sửa vận đơn thành công";
+            create_flash_message("success", $message, "success");
+            wp_send_json_success(["message" => $message]);
+        } catch (GuzzleHttp\Exception\ClientException $e) {
+            $message = json_decode($e->getResponse()->getBody()->getContents())->code_message_value;
+            wp_send_json_error(["message" => $message]);
+        }
+    }
+} else {
+    die('ajax_update_ghn_order');
+}
+
+if (!function_exists('ajax_cancel_ghn_order')) {
+    function ajax_cancel_ghn_order()
+    {
+        try {
+            $settings = get_option('woocommerce_giao_hang_nhanh_settings');
+            $token = $settings["api_token"];
+
+            $body = [
+                "order_codes" => [$_POST["order_code"]]
+            ];
+            // dd($body);
+
+            $env = @get_option('devvn_woo_district')["moitruong"];
+            $url = GHN_TEST_URL . 'switch-status/cancel';
+            if ($env == "product") {
+                $url = GHN_PRODUCT_URL . "switch-status/cancel";
+            }
+            $client = new \GuzzleHttp\Client();
+            $response = $client->post(
+                $url,
+                [
+                    'headers' => [
+                        'Content-Type' => 'application/json',
+                        "Token" => $token,
+                        "ShopId" => $_POST["shop_id"]
+                    ],
+                    'body' =>  json_encode($body)
+                ]
+            );
+            if (metadata_exists('post', $_POST["order_id"], GHN_ORDER_CODE)) {
+                delete_post_meta($_POST["order_id"], GHN_ORDER_CODE);
+            }
+            $message = "Xóa vận đơn thành công";
+            create_flash_message("success", $message, "success");
+            wp_send_json_success(["message" => $message]);
+        } catch (GuzzleHttp\Exception\ClientException $e) {
+            $message = json_decode($e->getResponse()->getBody()->getContents())->code_message_value;
+            wp_send_json_error(["message" => $message]);
+        }
+    }
+} else {
+    die('ajax_cancel_ghn_order');
 }

@@ -22,3 +22,27 @@ Stack trace:
 
 2023-09-18T02:49:40+00:00 CRITICAL syntax error, unexpected 'use' (T_USE), expecting '{' in C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php on line 46
 
+2023-09-18T13:22:28+00:00 CRITICAL syntax error, unexpected end of file in C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php on line 458
+
+2023-09-18T13:22:49+00:00 CRITICAL syntax error, unexpected end of file in C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php on line 458
+
+2023-09-18T14:35:38+00:00 CRITICAL Uncaught TypeError: Argument 2 passed to create_flash_message() must be of the type string, null given, called in C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php on line 547 and defined in C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php:354
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php(547): create_flash_message('success', NULL, 'success')
+#1 C:\xampp\htdocs\osaka\wp-includes\class-wp-hook.php(310): ajax_update_ghn_order('')
+#2 C:\xampp\htdocs\osaka\wp-includes\class-wp-hook.php(334): WP_Hook->apply_filters('', Array)
+#3 C:\xampp\htdocs\osaka\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#4 C:\xampp\htdocs\osaka\wp-admin\admin-ajax.php(188): do_action('wp_ajax_update_...')
+#5 {main}
+  thrown in C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php on line 354
+
+2023-09-18T14:36:50+00:00 CRITICAL Uncaught TypeError: Argument 2 passed to create_flash_message() must be of the type string, null given, called in C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php on line 549 and defined in C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php:354
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php(549): create_flash_message('success', NULL, 'success')
+#1 C:\xampp\htdocs\osaka\wp-includes\class-wp-hook.php(310): ajax_update_ghn_order('')
+#2 C:\xampp\htdocs\osaka\wp-includes\class-wp-hook.php(334): WP_Hook->apply_filters('', Array)
+#3 C:\xampp\htdocs\osaka\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#4 C:\xampp\htdocs\osaka\wp-admin\admin-ajax.php(188): do_action('wp_ajax_update_...')
+#5 {main}
+  thrown in C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php on line 354
+
