@@ -45,7 +45,7 @@ if (!function_exists('initTheme')) {
 if (!function_exists('my_admin_enqueue_scripts')) {
     function my_admin_enqueue_scripts($hook)
     {
-        wp_enqueue_script('my_admin_enqueue_scripts', TEMPLATE_DIRECTORY . '/assets/js/admin.js', ['jquery'], '1.0', true);
+        wp_enqueue_script('my_admin_enqueue_scripts_2', TEMPLATE_DIRECTORY . '/assets/js/admin.js', null, null, true);
     }
 } else {
     die('my_admin_enqueue_scripts');
@@ -342,6 +342,32 @@ if (!function_exists('admin_newsletter')) {
     die('admin_newsletter');
 }
 
+if (!function_exists('create_flash_message')) {
+    function create_flash_message(string $name, string $message, string $type)
+    {
+        if (isset($_SESSION[FLASH_MESSAGES][$name])) {
+            unset($_SESSION[FLASH_MESSAGES][$name]);
+        }
+        $_SESSION[FLASH_MESSAGES][$name] = ['message' => $message, 'type' => $type];
+    }
+} else {
+    die('create_flash_message');
+}
+
+if (!function_exists('get_flash_message')) {
+    function get_flash_message(string $name)
+    {
+        if (!isset($_SESSION[FLASH_MESSAGES][$name])) {
+            return false;
+        }
+        $flash_message = $_SESSION[FLASH_MESSAGES][$name];
+        unset($_SESSION[FLASH_MESSAGES][$name]);
+        return $flash_message;
+    }
+} else {
+    die('get_flash_message');
+}
+
 if (!function_exists('ajax_create_ghn_order')) {
     function ajax_create_ghn_order()
     {
@@ -358,12 +384,12 @@ if (!function_exists('ajax_create_ghn_order')) {
                 $items[] = [
                     "name" => $data["name"],
                     "code" => $product["sku"],
-                    "quantity" =>  $data["quantity"],
-                    "price" =>  $data["total"],
-                    "length" => $product["length"],
-                    "width" => $product["width"],
-                    "height" => $product["height"],
-                    "weight" => $product["weight"],
+                    "quantity" => (int) $data["quantity"],
+                    "price" => (int) $data["total"],
+                    "length" => (int)$product["length"],
+                    "width" => (int)$product["width"],
+                    "height" => (int)$product["height"],
+                    "weight" => (int)$product["weight"],
                     "category" => [
                         "level1" => @get_term(@$product["category_ids"][0])->name
                     ]
@@ -374,7 +400,7 @@ if (!function_exists('ajax_create_ghn_order')) {
             $token = $settings["api_token"];
 
             $body = [
-                "payment_type_id" => $_POST["payment_type_id"],
+                "payment_type_id" => (int)$_POST["payment_type_id"],
                 "note" => $_POST["note"],
                 "required_note" => $_POST["required_note"],
                 "client_order_code" => $_POST["client_order_code"],
@@ -382,14 +408,14 @@ if (!function_exists('ajax_create_ghn_order')) {
                 "to_phone" => $shipping["phone"],
                 "to_address" => $shipping["address_1"],
                 "to_ward_code" => $shipping["city"],
-                "to_district_id" => end((explode("_", $shipping["state"]))),
-                "cod_amount" =>  $_POST["cod_amount"],
-                "weight" => $_POST["weight"],
-                "length" => $_POST["length"],
-                "width" => $_POST["width"],
-                "height" => $_POST["height"],
+                "to_district_id" => (int)end((explode("_", $shipping["state"]))),
+                "cod_amount" =>  (int)$_POST["cod_amount"],
+                "weight" => (int)$_POST["weight"],
+                "length" => (int)$_POST["length"],
+                "width" => (int)$_POST["width"],
+                "height" => (int)$_POST["height"],
                 "deliver_station_id" => null,
-                "insurance_value" =>  $_POST["insurance_value"],
+                "insurance_value" =>  (int)$_POST["insurance_value"],
                 "service_type_id" => 2,
                 "items" => $items
             ];
@@ -407,7 +433,14 @@ if (!function_exists('ajax_create_ghn_order')) {
                 ]
             );
             $response_data = json_decode($response->getBody()->getContents());
+            if (metadata_exists('post', $_POST["order_id"], GHN_ORDER_CODE)) {
+                update_post_meta($_POST["order_id"], GHN_ORDER_CODE, $response_data->data->order_code);
+            } else {
+                add_post_meta($_POST["order_id"], GHN_ORDER_CODE, $response_data->data->order_code, true);
+            }
+            add_action('admin_notices', 'wpse75629_admin_notice');
             $message = $response_data->message_display;
+            create_flash_message("success", $response_data->message_display, "success");
             wp_send_json_success(["message" => $message]);
         } catch (GuzzleHttp\Exception\ClientException $e) {
             $message = json_decode($e->getResponse()->getBody()->getContents())->code_message_value;

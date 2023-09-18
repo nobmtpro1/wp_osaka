@@ -1,7 +1,7 @@
 <?php
-
-use Symfony\Component\VarDumper\Cloner\VarCloner;
-use Symfony\Component\VarDumper\Dumper\HtmlDumper;
+if (!session_id()) {
+    session_start();
+}
 
 include "vendor/autoload.php";
 require_once 'const.php';
@@ -39,3 +39,14 @@ add_action('admin_enqueue_scripts', 'my_admin_enqueue_scripts');
 
 // woocommerce_giao_hang_nhanh_settings devvn_woo_district
 // dd(get_option('woocommerce_giao_hang_nhanh_settings'));
+
+
+$flash_message = get_flash_message("success");
+if ($flash_message) {
+    function wpse60244_custom_admin_notice()
+    {
+        global $flash_message;
+        return print '<div id="message" class="updated fade"><p><strong>Hi!</strong>"' . $flash_message["message"] . '"</p></div>';
+    }
+    add_action('admin_notices', 'wpse60244_custom_admin_notice');
+}

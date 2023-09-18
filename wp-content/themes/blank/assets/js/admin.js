@@ -28,13 +28,27 @@ document.querySelector("body").addEventListener("click", function (e) {
 
     console.log(data);
 
+    const body = document.querySelector("body");
+    body.classList.add("ghn_loading");
     wp.ajax
       .post("create_ghn_order", data)
       .done(function (response) {
-        alert(response?.message);
+        location.reload();
       })
       .fail(function (error) {
+        body.classList.remove("ghn_loading");
         alert(error?.message);
       });
+  }
+});
+
+const noticeErrors = document.querySelectorAll(".notice.notice-error p");
+noticeErrors?.forEach((e) => {
+  console.log(e?.textContent);
+  if (
+    e?.textContent ==
+    "Hãy điền License Key để tự động cập nhật khi có phiên bản mới. Thêm tại đây"
+  ) {
+    e?.parentElement?.remove();
   }
 });

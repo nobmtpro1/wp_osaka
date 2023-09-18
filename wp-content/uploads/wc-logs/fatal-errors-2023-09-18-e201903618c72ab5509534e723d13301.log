@@ -1,0 +1,24 @@
+2023-09-18T01:53:02+00:00 CRITICAL syntax error, unexpected ';' in C:\xampp\htdocs\osaka\wp-content\themes\blank\helpers.php on line 410
+
+2023-09-18T02:46:17+00:00 CRITICAL Uncaught Error: Call to undefined function get_flash_message() in C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php:44
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-settings.php(600): include()
+#1 C:\xampp\htdocs\osaka\wp-config.php(28): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\osaka\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\osaka\wp-blog-header.php(13): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\osaka\index.php(17): require('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php on line 44
+
+2023-09-18T02:46:18+00:00 CRITICAL Uncaught Error: Call to undefined function get_flash_message() in C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php:44
+Stack trace:
+#0 C:\xampp\htdocs\osaka\wp-settings.php(600): include()
+#1 C:\xampp\htdocs\osaka\wp-config.php(28): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\osaka\wp-load.php(50): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\osaka\wp-blog-header.php(13): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\osaka\index.php(17): require('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php on line 44
+
+2023-09-18T02:49:40+00:00 CRITICAL syntax error, unexpected 'use' (T_USE), expecting '{' in C:\xampp\htdocs\osaka\wp-content\themes\blank\functions.php on line 46
+
