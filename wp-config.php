@@ -1,5 +1,7 @@
 <?php
 // email: nobmtpro2027@gmail.com / yneszskblcnmmmke
+define('DISALLOW_FILE_EDIT', true);
+define('DISALLOW_FILE_MODS', true);
 
 define('DB_NAME', 'wp_osaka');
 define('DB_USER', 'root');

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Single Product title
  *
@@ -15,8 +16,9 @@
  * @version    1.6.4
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
-
-the_title( '<h1 class="product_title entry-title w-single-title">', '</h1>' );
+$fields = get_fields();
+// dd($fields);
+the_title('<div class="w-single-thuong-hieu">' . @$fields["thuong_hieu"] . '</div><h1 class="product_title entry-title w-single-title">', '</h1>');

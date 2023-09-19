@@ -44,3 +44,15 @@ add_action('admin_enqueue_scripts', 'my_admin_enqueue_scripts');
 // dd(get_option('devvn_woo_district')["moitruong"]);
 
 add_action('admin_notices', 'my_admin_notices');
+
+
+function chetz_remove_admin_menus()
+{
+
+    // Check that the built-in WordPress function remove_menu_page() exists in the current installation
+    if (function_exists('remove_menu_page')) {
+
+        remove_menu_page('edit.php?post_type=acf-field-group'); // Remove the Links tab by providing its slug
+    }
+}
+add_action('admin_menu', 'chetz_remove_admin_menus');

@@ -408,6 +408,7 @@ select {
 
 .w-single-title {
   margin-bottom: 10px;
+  font-size: 20px !important;
 }
 
 .w-single-price {
@@ -518,7 +519,7 @@ select {
 }
 
 .w-product-summary {
-  padding-top: 20px !important;
+  padding-top: 0px !important;
 }
 .w-product-summary a {
   color: #ff9900;
@@ -1289,6 +1290,16 @@ select {
 
 .w-product-shortdescription {
   margin-bottom: 20px !important;
+}
+
+.w-single-thuong-hieu {
+  font-size: 14px;
+  line-height: 18px;
+  margin-bottom: 5px;
+  color: #949494;
+  font-weight: 400;
+  margin-top: 10px;
+  text-transform: uppercase;
 }
 
 .page-home {
