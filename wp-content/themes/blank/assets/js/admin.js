@@ -101,7 +101,7 @@ document.querySelector("body").addEventListener("click", function (e) {
       order_id: order_id,
       order_code: orderCode,
     };
-    e.target.innerHTML = "Đang xóa đơn hàng...";
+    e.target.innerHTML = "Đang xóa vận đơn...";
     e.target.style.pointerEvents = "none";
     wp.ajax
       .post("cancel_ghn_order", data)
@@ -109,7 +109,7 @@ document.querySelector("body").addEventListener("click", function (e) {
         location.reload();
       })
       .fail(function (error) {
-        e.target.innerHTML = "Xóa đơn hàng...";
+        e.target.innerHTML = "Xóa vận đơn";
         e.target.style.pointerEvents = "unset";
         alert(error?.message);
       });
